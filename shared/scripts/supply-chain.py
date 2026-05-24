@@ -230,13 +230,24 @@ def scan_project(project_root, db_path=None):
     return all_findings
 
 
+USAGE = "Usage: supply-chain.py <project_root> [slopsquatting_json]"
+
+
 def main():
     if len(sys.argv) < 2:
-        print("Usage: supply-chain.py <project_root> [slopsquatting_json]", file=sys.stderr)
-        sys.exit(1)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
 
     project_root = sys.argv[1]
     db_path = sys.argv[2] if len(sys.argv) > 2 else None
+
+    if not os.path.isdir(project_root):
+        print(f"supply-chain.py: project_root not found or not a directory: {project_root}", file=sys.stderr)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
+    if db_path is not None and not os.path.isfile(db_path):
+        print(f"supply-chain.py: slopsquatting JSON not found: {db_path}", file=sys.stderr)
+        sys.exit(2)
 
     findings = scan_project(project_root, db_path)
     print(json.dumps(findings, indent=2))

@@ -177,13 +177,24 @@ def scan_project(project_root, patterns_path=None):
     return all_findings
 
 
+USAGE = "Usage: config-scanner.py <project_root> [patterns_json]"
+
+
 def main():
     if len(sys.argv) < 2:
-        print("Usage: config-scanner.py <project_root> [patterns_json]", file=sys.stderr)
-        sys.exit(1)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
 
     project_root = sys.argv[1]
     patterns_path = sys.argv[2] if len(sys.argv) > 2 else None
+
+    if not os.path.isdir(project_root):
+        print(f"config-scanner.py: project_root not found or not a directory: {project_root}", file=sys.stderr)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
+    if patterns_path is not None and not os.path.isfile(patterns_path):
+        print(f"config-scanner.py: patterns JSON not found: {patterns_path}", file=sys.stderr)
+        sys.exit(2)
 
     findings = scan_project(project_root, patterns_path)
     print(json.dumps(findings, indent=2))

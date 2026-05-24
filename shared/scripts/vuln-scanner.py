@@ -130,13 +130,27 @@ def scan_file(file_path, patterns_path=None):
     return findings
 
 
+USAGE = "Usage: vuln-scanner.py <file_to_scan> [patterns_json]"
+
+
 def main():
     if len(sys.argv) < 2:
-        print("Usage: vuln-scanner.py <file_to_scan> [patterns_json]", file=sys.stderr)
-        sys.exit(1)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
 
     file_path = sys.argv[1]
     patterns_path = sys.argv[2] if len(sys.argv) > 2 else None
+
+    if not os.path.isfile(file_path):
+        print(f"vuln-scanner.py: input file not found or not a regular file: {file_path}", file=sys.stderr)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
+    if not os.access(file_path, os.R_OK):
+        print(f"vuln-scanner.py: input file not readable: {file_path}", file=sys.stderr)
+        sys.exit(2)
+    if patterns_path is not None and not os.path.isfile(patterns_path):
+        print(f"vuln-scanner.py: patterns JSON not found: {patterns_path}", file=sys.stderr)
+        sys.exit(2)
 
     findings = scan_file(file_path, patterns_path)
     print(json.dumps(findings, indent=2))

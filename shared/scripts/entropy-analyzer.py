@@ -10,6 +10,7 @@ Usage:
 
 import json
 import math
+import os
 import re
 import sys
 
@@ -107,14 +108,31 @@ def analyze_file(file_path, threshold=4.5, min_length=20):
     return findings
 
 
+USAGE = "Usage: entropy-analyzer.py <file_to_scan> [threshold] [min_length]"
+
+
 def main():
     if len(sys.argv) < 2:
-        print("Usage: entropy-analyzer.py <file_to_scan>", file=sys.stderr)
-        sys.exit(1)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
 
     file_path = sys.argv[1]
-    threshold = float(sys.argv[2]) if len(sys.argv) > 2 else 4.5
-    min_length = int(sys.argv[3]) if len(sys.argv) > 3 else 20
+
+    if not os.path.isfile(file_path):
+        print(f"entropy-analyzer.py: input file not found or not a regular file: {file_path}", file=sys.stderr)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
+    if not os.access(file_path, os.R_OK):
+        print(f"entropy-analyzer.py: input file not readable: {file_path}", file=sys.stderr)
+        sys.exit(2)
+
+    try:
+        threshold = float(sys.argv[2]) if len(sys.argv) > 2 else 4.5
+        min_length = int(sys.argv[3]) if len(sys.argv) > 3 else 20
+    except ValueError:
+        print("entropy-analyzer.py: threshold must be float, min_length must be int", file=sys.stderr)
+        print(USAGE, file=sys.stderr)
+        sys.exit(2)
 
     findings = analyze_file(file_path, threshold, min_length)
     print(json.dumps(findings, indent=2))

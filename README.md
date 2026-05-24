@@ -6,7 +6,7 @@
 
 <p>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-3fb950?style=for-the-badge"></a>
-  <img alt="5 plugins" src="https://img.shields.io/badge/Plugins-5-bc8cff?style=for-the-badge">
+  <img alt="15 plugins" src="https://img.shields.io/badge/Plugins-15-bc8cff?style=for-the-badge">
   <img alt="1,844 security patterns" src="https://img.shields.io/badge/Patterns-1%2C844-58a6ff?style=for-the-badge">
   <img alt="98 CWEs covered" src="https://img.shields.io/badge/CWEs-98-d29922?style=for-the-badge">
   <img alt="Zero dependencies (bash plus jq)" src="https://img.shields.io/badge/Deps-0-f85149?style=for-the-badge">
@@ -15,7 +15,9 @@
 
 > **An @enchanter-ai product — algorithm-driven, agent-managed, self-learning.**
 
-**5 plugins. 5 agents. 1,844 patterns. 8 algorithms. 98 CWEs. 20 attack databases. Zero dependencies.**
+**15 plugins (+ 1 meta-installer). 5 agents. 1,844 patterns. 8 algorithms. 98 CWEs. 20 attack databases. Zero dependencies.**
+
+Plugin count breakdown: 5 scanner plugins (each with a Sonnet/Haiku agent), 4 advisory hook plugins, 2 compliance plugins, 4 opt-in / post-filter plugins (capability-shield, egress-shield, reach-filter, state-integrity), and 1 meta-installer (`full`). Of the 16 directories under `plugins/`, the `full` plugin contains no logic of its own — it exists only to install the other 15 as dependencies.
 
 Built from blood — every pattern traces back to a real CVE, a real breach, or a real research paper.
 
@@ -69,7 +71,7 @@ Not for:
 - [The Full Lifecycle](#the-full-lifecycle)
 - [Install](#install)
 - [Quickstart](#quickstart)
-- [5 Plugins, 5 Agents, 1,844 Patterns](#5-plugins-5-agents-1844-patterns)
+- [15 Plugins, 5 Agents, 1,844 Patterns](#15-plugins-5-agents-1844-patterns)
 - [What You Get Per Session](#what-you-get-per-session)
 - [Roadmap](#roadmap)
 - [The Science Behind Hydra](#the-science-behind-hydra)
@@ -216,7 +218,7 @@ Source: [docs/assets/lifecycle.mmd](docs/assets/lifecycle.mmd) · Regeneration c
 
 ## Install
 
-Hydra ships as 5 plugins layering defenses across SessionStart / PreToolUse / PostToolUse. One meta-plugin — `full` — lists all five as dependencies, so a single install pulls in the whole stack.
+Hydra ships as 15 plugins layering defenses across SessionStart / PreToolUse / PostToolUse, plus a 16th `full` meta-plugin that lists the other 15 as dependencies so a single install pulls in the whole stack.
 
 **In Claude Code** (recommended):
 
@@ -225,7 +227,7 @@ Hydra ships as 5 plugins layering defenses across SessionStart / PreToolUse / Po
 /plugin install full@hydra
 ```
 
-Claude Code resolves the dependency list and installs all 5 plugins. Verify with `/plugin list`.
+Claude Code resolves the dependency list and installs all 15 plugins. Verify with `/plugin list`.
 
 **Want to cherry-pick?** Individual plugins are still installable by name — e.g. `/plugin install hydra-secret-scanner@hydra` if you only need credential scanning. Each plugin covers a different attack surface, though, so `full@hydra` is the path we recommend for real defense-in-depth.
 
@@ -244,9 +246,9 @@ cd hydra
 ```
 
 Without `./scripts/bootstrap.sh`, conduct imports will silently miss and Claude Code's `@`-loader will fail-soft. Always bootstrap first.
-## 11 Plugins, 11 Agents, 1,844 Patterns
+## 15 Plugins, 5 Agents, 1,844 Patterns
 
-Five **scanner plugins** (the original lineup), four **advisory hook plugins** (added 2026-05-05) that close supply-chain, exfil, prompt-injection, and capability-fence gaps, plus two **compliance plugins** (license-gate, sbom-emitter — added 2026-05-05, originally drafted in pech then re-homed here as supply-chain belongs under security).
+Five **scanner plugins** (the original lineup, each with a dedicated agent), four **advisory hook plugins** (added 2026-05-05) that close supply-chain, exfil, prompt-injection, and capability-fence gaps, two **compliance plugins** (license-gate, sbom-emitter — added 2026-05-05, originally drafted in pech then re-homed here as supply-chain belongs under security), and four **opt-in / post-filter plugins** (capability-shield, egress-shield, reach-filter, state-integrity) that add blocking enforcement or reachability filtering on top of the advisory layer. A sixteenth directory, `plugins/full/`, is a **meta-installer only** — no hooks, no skills, no agent — listed separately below.
 
 | Plugin | Command | What | Agent |
 |--------|---------|------|-------|
@@ -261,6 +263,11 @@ Five **scanner plugins** (the original lineup), four **advisory hook plugins** (
 | **capability-fence** | (advisory) | Subagent-escape detection vs declared `allowed-tools` | (advisory hook) |
 | **license-gate** | (skill / CI) | SPDX allow/deny scan over npm + pip dep trees | (skill-invoked) |
 | **sbom-emitter** | (skill / CI) | CycloneDX SBOM generation, wired into release.yml | (skill-invoked) |
+| **capability-shield** | (opt-in BLOCK) | Sibling of capability-fence; exits 2 on tool not in `allowed-tools` when policy enabled | (opt-in hook) |
+| **egress-shield** | (opt-in BLOCK) | Sibling of egress-monitor; blocks WebFetch/WebSearch/Bash-network outside allowlist | (opt-in hook) |
+| **reach-filter** | (post-filter) | Call-graph reachability post-filter over vuln-detector findings (F-039) | (skill / CI) |
+| **state-integrity** | (defense-of-defense) | HMAC-signed defense-state files; meta-canary catches state-file tampering | (hook + scripts) |
+| `full` (meta) | (install only) | No hooks/skills/agents of its own; resolves dependencies to install all 15 above | — |
 
 ## What You Get Per Session
 
@@ -454,7 +461,7 @@ Interactive architecture explorer with plugin diagrams, hook binding maps, and d
 bash tests/run-all.sh
 ```
 
-35 tests across all 5 plugins + shared utilities. Tests validate:
+35 tests across the 5 scanner plugins + shared utilities (the 10 newer plugins ship their own test fixtures in-plugin). Tests validate:
 - Secret detection (7 tests)
 - Vulnerability detection (6 tests)
 - Command blocking (7 tests)

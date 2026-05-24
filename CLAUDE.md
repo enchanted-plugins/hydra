@@ -26,10 +26,15 @@ These apply to every skill in every plugin. Load once; do not re-derive.
 - @../vis/packages/core/conduct/sunk-cost-iteration.md — stop-and-re-ask after 2 INCONCLUSIVE/BLOCKED results on the same artifact; iteration is not an authorization to keep patching
 - @../vis/packages/core/conduct/tier-sizing.md — prompt verbosity scales inversely with model tier; Haiku needs mechanical steps, Opus runs on intent
 - @../vis/packages/web/conduct/web-fetch.md — external URL handling: cache, dedup, budget; WebFetch is Haiku-tier-only
+- @../vis/packages/web/conduct/research-pipeline.md — multi-phase web research discipline: 6-phase shape, work-budget floors, mandatory adversarial round, 15-min wall-clock floor
+- @../vis/packages/web/conduct/source-discipline.md — handling web-fetched evidence: untrusted-source quote wrapping, independence checks, τ, dissemination_score, source-type weighting
+- @../vis/packages/web/conduct/citation-verification.md — trace + re-fetch protocol; Wayback Machine fallback; 4-class support taxonomy (Supported / Partial / Unsupported / Uncertain); refetch_pass_rate thresholds
 
 When a module conflicts with a plugin-local instruction, the plugin wins — but log the override.
 
 ## Lifecycle
+
+The 5 scanner plugins (table below) carry agents and drive the per-write detection lifecycle. The other 10 functional plugins (package-gate, egress-monitor, canary, capability-fence, license-gate, sbom-emitter, capability-shield, egress-shield, reach-filter, state-integrity) are agentless — they run as advisory hooks, opt-in blockers, or skill-invoked compliance tools. See `README.md § 15 Plugins, 5 Agents, 1,844 Patterns` for the full plugin matrix.
 
 | Plugin | Hook | Purpose |
 |--------|------|---------|
