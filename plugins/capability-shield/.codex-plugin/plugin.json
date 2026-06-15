@@ -1,0 +1,32 @@
+{
+  "name": "capability-shield",
+  "version": "0.1.0",
+  "description": "OPT-IN BLOCKING capability allowlist. Sibling of hydra-capability-fence (advisory). When state/capability-policy.json sets enabled:true, this shield blocks any tool call whose name is not in the active skill's declared allowed-tools frontmatter list. Default disabled \u2014 out of the box this shield does nothing.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "subagent-escape",
+    "capability",
+    "delegation",
+    "blocking",
+    "pretooluse",
+    "f-010"
+  ],
+  "interface": {
+    "displayName": "Capability Shield",
+    "shortDescription": "OPT-IN BLOCKING capability allowlist. Sibling of hydra-capability-fence (adviso\u2026",
+    "longDescription": "OPT-IN BLOCKING capability allowlist. Sibling of hydra-capability-fence (advisory). When state/capability-policy.json sets enabled:true, this shield blocks any tool call whose name is not in the active skill's declared allowed-tools frontmatter list. Default disabled \u2014 out of the box this shield does nothing.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Capability Shield on my project"
+    ]
+  },
+  "skills": "./skills/"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "reach-filter",
+  "version": "0.1.0",
+  "description": "Reachability-aware SCA post-filter. Consumes vuln-detector audit.jsonl findings and lich's call-graph (when available) and emits a reach-classified subset distinguishing 'reachable from entrypoint' from 'present-but-unreachable' vulnerabilities. Off by default; operator-invoked via scripts/reach-filter.py. Currently scaffolded \u2014 full integration is BLOCKED on lich exporting a persisted call-graph artifact.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "reachability",
+    "sca",
+    "call-graph",
+    "vuln-filter",
+    "post-filter",
+    "advisory"
+  ],
+  "interface": {
+    "displayName": "Reach Filter",
+    "shortDescription": "Reachability-aware SCA post-filter. Consumes vuln-detector audit.jsonl findings\u2026",
+    "longDescription": "Reachability-aware SCA post-filter. Consumes vuln-detector audit.jsonl findings and lich's call-graph (when available) and emits a reach-classified subset distinguishing 'reachable from entrypoint' from 'present-but-unreachable' vulnerabilities. Off by default; operator-invoked via scripts/reach-filter.py. Currently scaffolded \u2014 full integration is BLOCKED on lich exporting a persisted call-graph\u2026",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Reach Filter on my project"
+    ]
+  },
+  "skills": "./skills/"
+}

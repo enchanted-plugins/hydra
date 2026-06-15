@@ -1,0 +1,200 @@
+{
+  "name": "hydra",
+  "interface": {
+    "displayName": "Hydra"
+  },
+  "plugins": [
+    {
+      "name": "action-guard",
+      "source": {
+        "source": "local",
+        "path": "./plugins/action-guard"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "audit-trail",
+      "source": {
+        "source": "local",
+        "path": "./plugins/audit-trail"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "canary",
+      "source": {
+        "source": "local",
+        "path": "./plugins/canary"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "capability-fence",
+      "source": {
+        "source": "local",
+        "path": "./plugins/capability-fence"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "capability-shield",
+      "source": {
+        "source": "local",
+        "path": "./plugins/capability-shield"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "config-shield",
+      "source": {
+        "source": "local",
+        "path": "./plugins/config-shield"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "egress-monitor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/egress-monitor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "egress-shield",
+      "source": {
+        "source": "local",
+        "path": "./plugins/egress-shield"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "full",
+      "source": {
+        "source": "local",
+        "path": "./plugins/full"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "license-gate",
+      "source": {
+        "source": "local",
+        "path": "./plugins/license-gate"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "package-gate",
+      "source": {
+        "source": "local",
+        "path": "./plugins/package-gate"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "reach-filter",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reach-filter"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "sbom-emitter",
+      "source": {
+        "source": "local",
+        "path": "./plugins/sbom-emitter"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "secret-scanner",
+      "source": {
+        "source": "local",
+        "path": "./plugins/secret-scanner"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "state-integrity",
+      "source": {
+        "source": "local",
+        "path": "./plugins/state-integrity"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "vuln-detector",
+      "source": {
+        "source": "local",
+        "path": "./plugins/vuln-detector"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    }
+  ]
+}

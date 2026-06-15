@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hydra-state-integrity-scripts": {
+      "cwd": ".",
+      "command": "python",
+      "args": [
+        "./mcp/server.py"
+      ]
+    }
+  }
+}

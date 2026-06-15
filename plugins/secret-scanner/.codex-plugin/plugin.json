@@ -1,0 +1,32 @@
+{
+  "name": "secret-scanner",
+  "version": "1.0.0",
+  "description": "Real-time secret detection in written files. 200+ patterns, Shannon entropy, Aho-Corasick matching.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "secrets",
+    "scanning",
+    "aho-corasick",
+    "entropy",
+    "detection"
+  ],
+  "interface": {
+    "displayName": "Secret Scanner",
+    "shortDescription": "Real-time secret detection in written files. 200+ patterns, Shannon entropy, Ah\u2026",
+    "longDescription": "Real-time secret detection in written files. 200+ patterns, Shannon entropy, Aho-Corasick matching.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Secret Scanner on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

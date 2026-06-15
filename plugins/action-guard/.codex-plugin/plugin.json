@@ -1,0 +1,32 @@
+{
+  "name": "action-guard",
+  "version": "1.0.0",
+  "description": "Pre-execution classification and blocking of dangerous Bash commands.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "bash",
+    "guard",
+    "blocking",
+    "commands",
+    "safety"
+  ],
+  "interface": {
+    "displayName": "Action Guard",
+    "shortDescription": "Pre-execution classification and blocking of dangerous Bash commands.",
+    "longDescription": "Pre-execution classification and blocking of dangerous Bash commands.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Action Guard on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

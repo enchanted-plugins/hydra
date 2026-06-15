@@ -1,0 +1,32 @@
+{
+  "name": "vuln-detector",
+  "version": "1.0.0",
+  "description": "OWASP Top 10 and CWE-mapped vulnerability detection in code changes.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vulnerability",
+    "owasp",
+    "cwe",
+    "security",
+    "detection"
+  ],
+  "interface": {
+    "displayName": "Vuln Detector",
+    "shortDescription": "OWASP Top 10 and CWE-mapped vulnerability detection in code changes.",
+    "longDescription": "OWASP Top 10 and CWE-mapped vulnerability detection in code changes.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Vuln Detector on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

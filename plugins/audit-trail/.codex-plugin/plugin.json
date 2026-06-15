@@ -1,0 +1,32 @@
+{
+  "name": "audit-trail",
+  "version": "1.0.0",
+  "description": "Comprehensive security event logging with rotation and reporting.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "audit",
+    "logging",
+    "events",
+    "trail",
+    "compliance"
+  ],
+  "interface": {
+    "displayName": "Audit Trail",
+    "shortDescription": "Comprehensive security event logging with rotation and reporting.",
+    "longDescription": "Comprehensive security event logging with rotation and reporting.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Audit Trail on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

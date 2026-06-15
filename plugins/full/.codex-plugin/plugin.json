@@ -1,0 +1,28 @@
+{
+  "name": "full",
+  "version": "1.0.0",
+  "description": "Meta-plugin that installs every Hydra plugin at once via dependency resolution. Installs: hydra-action-guard, hydra-audit-trail, hydra-config-shield, hydra-secret-scanner, hydra-vuln-detector.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "meta",
+    "bundle",
+    "install-all"
+  ],
+  "interface": {
+    "displayName": "Full",
+    "shortDescription": "Meta-plugin that installs every Hydra plugin at once via dependency resolution.\u2026",
+    "longDescription": "Meta-plugin that installs every Hydra plugin at once via dependency resolution. Installs: hydra-action-guard, hydra-audit-trail, hydra-config-shield, hydra-secret-scanner, hydra-vuln-detector.",
+    "developerName": "Enchanter Labs",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Full on my project"
+    ]
+  }
+}

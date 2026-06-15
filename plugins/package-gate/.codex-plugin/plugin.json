@@ -1,0 +1,34 @@
+{
+  "name": "package-gate",
+  "version": "0.1.0",
+  "description": "Advisory PreToolUse gate on package install commands. Surfaces 5 supply-chain risk signals (existence, age, maintainer, typosquat, download-cliff) before npm/pip/etc. install runs. Always exit 0; never blocks.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "supply-chain",
+    "npm",
+    "pip",
+    "typosquat",
+    "slopsquat",
+    "advisory",
+    "pretooluse"
+  ],
+  "interface": {
+    "displayName": "Package Gate",
+    "shortDescription": "Advisory PreToolUse gate on package install commands. Surfaces 5 supply-chain r\u2026",
+    "longDescription": "Advisory PreToolUse gate on package install commands. Surfaces 5 supply-chain risk signals (existence, age, maintainer, typosquat, download-cliff) before npm/pip/etc. install runs. Always exit 0; never blocks.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Package Gate on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

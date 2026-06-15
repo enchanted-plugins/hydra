@@ -1,0 +1,33 @@
+{
+  "name": "state-integrity",
+  "version": "1.0.0",
+  "description": "Defense-of-defense: signed state files + meta-canary on state file integrity + separate audit channel for state mutations.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "integrity",
+    "defense-in-depth",
+    "hmac",
+    "tamper-evident",
+    "state",
+    "canary"
+  ],
+  "interface": {
+    "displayName": "State Integrity",
+    "shortDescription": "Defense-of-defense: signed state files + meta-canary on state file integrity +\u2026",
+    "longDescription": "Defense-of-defense: signed state files + meta-canary on state file integrity + separate audit channel for state mutations.",
+    "developerName": "Enchanter Labs",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use State Integrity on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

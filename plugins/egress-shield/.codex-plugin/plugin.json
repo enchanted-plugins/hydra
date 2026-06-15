@@ -1,0 +1,33 @@
+{
+  "name": "egress-shield",
+  "version": "0.1.0",
+  "description": "OPT-IN BLOCKING PreToolUse egress allowlist. Pairs with hydra-egress-monitor (advisory). When state/egress-policy.json sets enabled:true, blocks WebFetch / WebSearch / Bash-network calls whose destination host is not in the allowlist by exiting 2. Default disabled (no-op). Closes audit finding F-005.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "egress",
+    "allowlist",
+    "blocking",
+    "opt-in",
+    "shield",
+    "f-005",
+    "pretooluse"
+  ],
+  "interface": {
+    "displayName": "Egress Shield",
+    "shortDescription": "OPT-IN BLOCKING PreToolUse egress allowlist. Pairs with hydra-egress-monitor (a\u2026",
+    "longDescription": "OPT-IN BLOCKING PreToolUse egress allowlist. Pairs with hydra-egress-monitor (advisory). When state/egress-policy.json sets enabled:true, blocks WebFetch / WebSearch / Bash-network calls whose destination host is not in the allowlist by exiting 2. Default disabled (no-op). Closes audit finding F-005.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Egress Shield on my project"
+    ]
+  },
+  "skills": "./skills/"
+}

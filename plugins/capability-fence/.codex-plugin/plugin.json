@@ -1,0 +1,34 @@
+{
+  "name": "capability-fence",
+  "version": "0.1.0",
+  "description": "Best-effort PreToolUse capability fence. Compares the tool being invoked against the active skill's declared allowed-tools list and emits a stderr advisory on mismatch. Observability only; cannot block. Real per-subagent runtime sandboxing requires harness/SDK changes outside plugin scope.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "subagent-escape",
+    "capability",
+    "delegation",
+    "advisory",
+    "pretooluse",
+    "f-010",
+    "f-050"
+  ],
+  "interface": {
+    "displayName": "Capability Fence",
+    "shortDescription": "Best-effort PreToolUse capability fence. Compares the tool being invoked agains\u2026",
+    "longDescription": "Best-effort PreToolUse capability fence. Compares the tool being invoked against the active skill's declared allowed-tools list and emits a stderr advisory on mismatch. Observability only; cannot block. Real per-subagent runtime sandboxing requires harness/SDK changes outside plugin scope.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Capability Fence on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

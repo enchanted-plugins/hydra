@@ -1,0 +1,32 @@
+{
+  "name": "license-gate",
+  "version": "0.1.0",
+  "description": "License compliance scanner for npm and pip dependency trees. Classifies every transitive dep against an allow/deny/warn policy (state/policy.json) using `npx license-checker` (Node) and `pip-licenses` (Python). Advisory by default; opt-in `--fail-on-deny` for release gating.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "license",
+    "compliance",
+    "supply-chain",
+    "sbom",
+    "policy"
+  ],
+  "interface": {
+    "displayName": "License Gate",
+    "shortDescription": "License compliance scanner for npm and pip dependency trees. Classifies every t\u2026",
+    "longDescription": "License compliance scanner for npm and pip dependency trees. Classifies every transitive dep against an allow/deny/warn policy (state/policy.json) using `npx license-checker` (Node) and `pip-licenses` (Python). Advisory by default; opt-in `--fail-on-deny` for release gating.",
+    "developerName": "Enchanter Labs",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use License Gate on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

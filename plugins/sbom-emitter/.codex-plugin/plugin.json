@@ -1,0 +1,26 @@
+{
+  "name": "sbom-emitter",
+  "version": "0.1.0",
+  "description": "Emits CycloneDX SBOM for npm and pip projects on release.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "interface": {
+    "displayName": "Sbom Emitter",
+    "shortDescription": "Emits CycloneDX SBOM for npm and pip projects on release.",
+    "longDescription": "Emits CycloneDX SBOM for npm and pip projects on release.",
+    "developerName": "Enchanter Labs",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Sbom Emitter on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

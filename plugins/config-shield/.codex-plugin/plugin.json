@@ -1,0 +1,32 @@
+{
+  "name": "config-shield",
+  "version": "1.0.0",
+  "description": "Session-start scanning for malicious repository configuration files.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "config",
+    "poisoning",
+    "repository",
+    "malicious",
+    "detection"
+  ],
+  "interface": {
+    "displayName": "Config Shield",
+    "shortDescription": "Session-start scanning for malicious repository configuration files.",
+    "longDescription": "Session-start scanning for malicious repository configuration files.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Config Shield on my project"
+    ]
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

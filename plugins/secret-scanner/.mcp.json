@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hydra-secret-scanner-scripts": {
+      "cwd": ".",
+      "command": "python",
+      "args": [
+        "./mcp/server.py"
+      ]
+    }
+  }
+}

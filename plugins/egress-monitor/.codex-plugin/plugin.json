@@ -1,0 +1,32 @@
+{
+  "name": "egress-monitor",
+  "version": "0.1.0",
+  "description": "Advisory PostToolUse logger for network egress. Records every WebFetch / WebSearch / Bash-network destination to an append-only NDJSON log and emits a stderr advisory on first-seen domains. Always exit 0; never blocks.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "egress",
+    "network",
+    "audit",
+    "advisory",
+    "posttooluse",
+    "observability"
+  ],
+  "interface": {
+    "displayName": "Egress Monitor",
+    "shortDescription": "Advisory PostToolUse logger for network egress. Records every WebFetch / WebSea\u2026",
+    "longDescription": "Advisory PostToolUse logger for network egress. Records every WebFetch / WebSearch / Bash-network destination to an append-only NDJSON log and emits a stderr advisory on first-seen domains. Always exit 0; never blocks.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Egress Monitor on my project"
+    ]
+  },
+  "skills": "./skills/"
+}

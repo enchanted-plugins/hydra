@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hydra-sbom-emitter-scripts": {
+      "cwd": ".",
+      "command": "python",
+      "args": [
+        "./mcp/server.py"
+      ]
+    }
+  }
+}

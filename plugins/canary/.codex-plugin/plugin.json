@@ -1,0 +1,32 @@
+{
+  "name": "canary",
+  "version": "0.1.0",
+  "description": "Advisory prompt-injection canary harness. PreToolUse(WebFetch) seeds a per-session high-entropy canary token into a stderr advisory; PostToolUse(*) scans every subsequent tool input/output for canary leakage. A hit indicates a successful indirect prompt injection took control of the agent. Always exit 0; never blocks.",
+  "author": {
+    "name": "Enchanter Labs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "prompt-injection",
+    "canary",
+    "webfetch",
+    "indirect-injection",
+    "advisory",
+    "telemetry"
+  ],
+  "interface": {
+    "displayName": "Canary",
+    "shortDescription": "Advisory prompt-injection canary harness. PreToolUse(WebFetch) seeds a per-sess\u2026",
+    "longDescription": "Advisory prompt-injection canary harness. PreToolUse(WebFetch) seeds a per-session high-entropy canary token into a stderr advisory; PostToolUse(*) scans every subsequent tool input/output for canary leakage. A hit indicates a successful indirect prompt injection took control of the agent. Always exit 0; never blocks.",
+    "developerName": "Enchanter Labs",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Canary on my project"
+    ]
+  },
+  "skills": "./skills/"
+}
