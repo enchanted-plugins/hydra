@@ -14,7 +14,7 @@ Part of the [Hydra](../..) bundle. The simplest install is the `full` meta-plugi
 To install this plugin on its own: `/plugin install hydra-config-shield@hydra`. `config-shield` fires once at session start — it catches the poisoned `.claude/settings.json` that would silence `action-guard`, the hook that would exfil secrets past `secret-scanner`, the VS Code settings that would load backdoored code past `vuln-detector`, and it writes every finding to `audit-trail`. It's the first line; without the other four, there's no second line.
 
 ## Algorithm
-- **R5: Config Poisoning Detection** — known-attack signature matching (7 of the 122 signatures carry a specific CVE; see table below)
+- **R5: Config Poisoning Detection** — known-attack signature matching (14 of the 122 signatures carry a specific CVE, mapping to 7 distinct CVE IDs; see table below)
 - **R-019: Signed Config Integrity** — HMAC-SHA-256 sidecar signatures on `.claude/settings*.json` and `hooks/hooks.json`. SessionStart verifies; PreToolUse warns on writes to signed configs.
 
 ## Hooks
