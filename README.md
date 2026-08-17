@@ -156,7 +156,7 @@ Hydra hooks into Claude Code's tool lifecycle. `scan-secrets.sh` fires on every 
 
 ### It blocks commands, not just reports them
 
-Action-guard is a **PreToolUse** hook — it sees the command before Claude Code executes it. When it detects `rm -rf /`, `DROP TABLE`, `curl | bash`, or a reverse shell, it exits with code 2 and the command is cancelled.
+Action-guard is a **PreToolUse** hook — it sees the command before Claude Code executes it. When it detects `rm -rf /`, `DROP TABLE`, `curl | bash`, or a reverse shell, it currently emits an advisory warning to stderr and lets the command proceed (exit 0). A narrow fail-closed deny-tier — actually cancelling the most catastrophic, irreversible ops via exit code 2 — is on the roadmap (shadow-mode first).
 
 ```
 [Hydra] BLOCKED: Recursive force delete from filesystem root (mode: balanced)
@@ -271,7 +271,7 @@ Five **scanner plugins** (the original lineup, each with a dedicated agent), fou
 
 ## What You Get Per Session
 
-Three hook events fan out into three color-coded journals — one per defense layer — and converge on the dark-themed HTML security report + the `/hydra:*` query surface. Color maps defense layers to journals: blue = secret-scanner (R1 + R2 detection) · red = action-guard (R4 + R7 blocking) · yellow = audit-trail (R8 aggregate posture).
+Three hook events fan out into three color-coded journals — one per defense layer — and converge on the dark-themed HTML security report + the `/hydra:*` query surface. Color maps defense layers to journals: blue = secret-scanner (R1 + R2 detection) · red = action-guard (R4 + R7 advisory) · yellow = audit-trail (R8 aggregate posture).
 
 <p align="center">
   <a href="docs/assets/state-flow.mmd" title="View state-flow diagram source (Mermaid)">
