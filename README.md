@@ -41,7 +41,7 @@ Built from blood — every pattern traces back to a real CVE, a real breach, or 
 
 **In plain English:** Your AI just typed an AWS key into a committed file, ran `rm -rf ~/`, and pip-installed a typosquatted package. Hydra blocks each one before it lands.
 
-**Technically:** R1 Aho-Corasick pattern engine scans 1,844 patterns across 20 databases (310 secret patterns + 156 OWASP/CWE-mapped vulns + 105 dangerous-ops + more) on every Write/Edit; R2 Shannon entropy analysis catches high-entropy strings that evade regex; R4 Markov Action Classification classifies Bash subcommands and surfaces dangerous ops at PreToolUse via advisory injection (exit 0 + stderr per `../vis/packages/core/conduct/hooks.md`). Every finding is keyed to a real CVE or CWE; no finding is fabricated from heuristics alone.
+**Technically:** R1 Aho-Corasick pattern engine scans 1,844 patterns across 20 databases (310 secret patterns + 156 OWASP/CWE-mapped vulns + 105 dangerous-ops + more) on every Write/Edit; R2 Shannon entropy analysis catches high-entropy strings that evade regex; R4 Markov Action Classification classifies Bash subcommands and surfaces dangerous ops at PreToolUse via advisory injection (exit 0 + stderr per `../vis/packages/core/conduct/hooks.md`). The corpus is CWE-mapped, not CVE-mapped: of the 1,840 patterns in the CWE/CVE-schema databases, 1,286 (70%) carry a CWE reference and only 64 (3.5%) also carry a specific CVE; no finding is fabricated from heuristics alone.
 
 ---
 
@@ -54,7 +54,7 @@ The question this plugin answers: *Is it safe?*
 ## Who this is for
 
 - Teams who've accepted that AI-assisted development opens attack surfaces traditional scanners don't cover — poisoned `.claude/settings.json` hooks, prompt-injection-to-RCE chains, typosquatted deps the agent pulled in.
-- Security-conscious developers who want findings keyed to real CVEs and CWEs, not vendor branding.
+- Security-conscious developers who want findings keyed to real CWEs — and, for the ~3.5% of patterns with a documented exploit, a specific CVE — not vendor branding.
 - Engineers running in environments where cloud security SaaS isn't an option — Hydra is bash + jq, no dependencies, no outbound calls.
 
 Not for:
@@ -255,7 +255,7 @@ Five **scanner plugins** (the original lineup, each with a dedicated agent), fou
 | secret-scanner | `/hydra:secrets` | 319 secret patterns + entropy analysis | scanner (Haiku) |
 | vuln-detector | `/hydra:vulns` | 1,525 vulnerability patterns across 98 CWEs | analyzer (Sonnet) |
 | action-guard | `/hydra:safety` | 113 dangerous ops; **advisory** (was blocking) | guardian (Sonnet) |
-| config-shield | `/hydra:config-check` | 122 config attack signatures, 8 CVEs | inspector (Sonnet) |
+| config-shield | `/hydra:config-check` | 122 config attack signatures, 7 CVEs | inspector (Sonnet) |
 | audit-trail | `/hydra:audit` | HMAC hash-chain JSONL + audit-verify skill | chronicler (Haiku) |
 | **package-gate** | (advisory) | npm/pip/uv/cargo/go/gem pre-install: 5 risk signals | (advisory hook) |
 | **egress-monitor** | (advisory) | NDJSON log of every WebFetch/Bash-network destination | (advisory hook) |
@@ -418,7 +418,7 @@ Cross-session EMA of threat rates. Dismissed patterns decay. Chronic patterns es
 | CWE coverage | **98 CWEs** | Secrets only | Varies | Varies | Secrets only |
 | Scan timing | **Per-write** (real-time) | Push-time | CI pipeline | CI pipeline | Push-time |
 | Command guarding | **PreToolUse advisory (exit 0 + stderr injection)** | — | — | — | — |
-| Config poisoning | **122 signatures, 8 CVEs** | — | — | — | — |
+| Config poisoning | **122 signatures, 7 CVEs** | — | — | — | — |
 | AI agent attacks | **116 patterns** | — | — | — | — |
 | CI/CD injection | **130 patterns** | — | — | Partial | — |
 | Container security | **113 patterns** | — | ✓ | ✓ | — |
@@ -484,7 +484,7 @@ Hydra builds on substrate laid by others:
 - **[Citation File Format](https://citation-file-format.github.io/)** — citation metadata.
 - **[Conventional Commits](https://www.conventionalcommits.org/)** — commit convention.
 
-Every one of the 1,844 patterns traces back to a real CVE, research paper, or breach writeup; the audit trail records these references per-finding.
+The corpus is CWE-mapped, not CVE-mapped: 1,286 of the 1,840 CWE/CVE-schema patterns (70%) carry a CWE reference, and 64 of those (3.5% of the total) also carry a specific CVE; the remaining patterns (secrets regexes, dangerous-ops signatures, and most config-attack signatures) are keyed to a documented breach, research paper, or vendor advisory instead of a CWE/CVE ID. The audit trail records whichever reference exists per-finding.
 
 ## Versioning & release cadence
 
