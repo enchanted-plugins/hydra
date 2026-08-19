@@ -1,0 +1,9 @@
+{
+  "recorded": "2026-08-19",
+  "fp_total": 109,
+  "fp_denied": 0,
+  "fp_pass_rate": 1.0,
+  "tp_total": 24,
+  "tp_denied": 24,
+  "tp_coverage": 1.0
+}

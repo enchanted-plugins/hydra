@@ -5,6 +5,7 @@
     "severity": "critical",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "deny",
     "description": "Recursive force delete from filesystem root"
   },
   {
@@ -13,6 +14,7 @@
     "severity": "critical",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "deny",
     "description": "Recursive force delete of home directory"
   },
   {
@@ -21,6 +23,7 @@
     "severity": "critical",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "deny",
     "description": "Recursive delete of system config directory"
   },
   {
@@ -29,6 +32,7 @@
     "severity": "high",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "warn",
     "description": "World-writable permissions from root — security risk"
   },
   {
@@ -37,6 +41,7 @@
     "severity": "medium",
     "category": "filesystem",
     "action": "warn",
+    "enforcement": "warn",
     "description": "World-writable permissions — review necessity"
   },
   {
@@ -45,6 +50,7 @@
     "severity": "critical",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "deny",
     "description": "Direct write to block device — can destroy filesystem"
   },
   {
@@ -53,6 +59,7 @@
     "severity": "critical",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "deny",
     "description": "Filesystem format command — destructive"
   },
   {
@@ -61,6 +68,7 @@
     "severity": "critical",
     "category": "git",
     "action": "block",
+    "enforcement": "ask",
     "description": "Force push to protected branch — can destroy shared history"
   },
   {
@@ -69,6 +77,7 @@
     "severity": "high",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Force push — can overwrite remote history"
   },
   {
@@ -77,6 +86,7 @@
     "severity": "high",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Hard reset — discards uncommitted changes permanently"
   },
   {
@@ -85,6 +95,7 @@
     "severity": "high",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Force clean — removes untracked files permanently"
   },
   {
@@ -93,6 +104,7 @@
     "severity": "medium",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Force delete branch regardless of merge status"
   },
   {
@@ -101,6 +113,7 @@
     "severity": "high",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Discard all uncommitted changes"
   },
   {
@@ -109,6 +122,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "SQL DROP TABLE/DATABASE — irreversible data loss"
   },
   {
@@ -117,6 +131,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "SQL TRUNCATE — deletes all rows irreversibly"
   },
   {
@@ -125,6 +140,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "DELETE without WHERE clause — deletes all rows"
   },
   {
@@ -133,6 +149,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "deny",
     "description": "Pipe remote content directly to bash — arbitrary code execution"
   },
   {
@@ -141,6 +158,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "deny",
     "description": "Pipe remote content directly to bash — arbitrary code execution"
   },
   {
@@ -149,6 +167,7 @@
     "severity": "medium",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "HTTP request to non-localhost URL — verify intent"
   },
   {
@@ -157,6 +176,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "deny",
     "description": "Bash reverse shell — backdoor attempt"
   },
   {
@@ -165,6 +185,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "deny",
     "description": "Netcat with exec — reverse shell attempt"
   },
   {
@@ -173,6 +194,7 @@
     "severity": "critical",
     "category": "system",
     "action": "block",
+    "enforcement": "deny",
     "description": "System shutdown/reboot command"
   },
   {
@@ -181,6 +203,7 @@
     "severity": "critical",
     "category": "system",
     "action": "block",
+    "enforcement": "deny",
     "description": "Kill all processes — system destabilization"
   },
   {
@@ -189,6 +212,7 @@
     "severity": "critical",
     "category": "system",
     "action": "block",
+    "enforcement": "deny",
     "description": "Recursive delete with elevated privileges"
   },
   {
@@ -197,6 +221,7 @@
     "severity": "high",
     "category": "system",
     "action": "block",
+    "enforcement": "ask",
     "description": "Recursive chown to root — privilege escalation"
   },
   {
@@ -205,6 +230,7 @@
     "severity": "high",
     "category": "exfiltration",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Printing/logging potential credentials"
   },
   {
@@ -213,6 +239,7 @@
     "severity": "medium",
     "category": "exfiltration",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Dumping environment variables — may contain secrets"
   },
   {
@@ -221,6 +248,7 @@
     "severity": "low",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Staging all files — may include sensitive files"
   },
   {
@@ -229,6 +257,7 @@
     "severity": "high",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Publishing to npm registry — verify package content"
   },
   {
@@ -237,6 +266,7 @@
     "severity": "high",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "pip install from untrusted index — supply chain risk"
   },
   {
@@ -245,6 +275,7 @@
     "severity": "critical",
     "category": "sandbox",
     "action": "block",
+    "enforcement": "ask",
     "description": "Sandbox or safety bypass — security control evasion"
   },
   {
@@ -253,6 +284,7 @@
     "severity": "medium",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Editing crontab — persistent background execution"
   },
   {
@@ -261,6 +293,7 @@
     "severity": "critical",
     "category": "system",
     "action": "block",
+    "enforcement": "ask",
     "description": "Flushing firewall rules — removes network security"
   },
   {
@@ -269,6 +302,7 @@
     "severity": "high",
     "category": "crypto",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Overwriting SSH keys — verify intent"
   },
   {
@@ -277,6 +311,7 @@
     "severity": "high",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Docker with privileged mode — full host access"
   },
   {
@@ -285,6 +320,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "Deleting Kubernetes namespace — destroys all resources in namespace"
   },
   {
@@ -293,6 +329,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "Deleting all Kubernetes resources of a type — mass destruction"
   },
   {
@@ -301,6 +338,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Applying Kubernetes manifest from URL — supply chain risk"
   },
   {
@@ -309,6 +347,7 @@
     "severity": "medium",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Interactive shell into Kubernetes pod — review necessity"
   },
   {
@@ -317,6 +356,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "Kubernetes node deletion/drain — removes compute capacity"
   },
   {
@@ -325,6 +365,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Modifying Kubernetes RBAC — privilege escalation risk"
   },
   {
@@ -333,6 +374,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Kubernetes port-forward on all interfaces — exposes internal services"
   },
   {
@@ -341,6 +383,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Docker system prune all — removes all unused images, containers, networks"
   },
   {
@@ -349,6 +392,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Removing all Docker images — may break deployments"
   },
   {
@@ -357,6 +401,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Stopping/removing all Docker containers — service disruption"
   },
   {
@@ -365,6 +410,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "ask",
     "description": "Removing Docker volumes — permanent data loss"
   },
   {
@@ -373,6 +419,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Docker mounting sensitive host directory — data exposure risk"
   },
   {
@@ -381,6 +428,7 @@
     "severity": "medium",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Docker with host networking — container network isolation bypassed"
   },
   {
@@ -389,6 +437,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Docker with host PID namespace — can see/signal host processes"
   },
   {
@@ -397,6 +446,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "Terraform destroy — tears down all managed infrastructure"
   },
   {
@@ -405,6 +455,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "Terraform with -auto-approve — skips confirmation prompt"
   },
   {
@@ -413,6 +464,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Terraform state manipulation — can orphan or break resources"
   },
   {
@@ -421,6 +473,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Terraform force-unlock — may cause state corruption if lock is legitimate"
   },
   {
@@ -429,6 +482,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "ask",
     "description": "AWS S3 recursive delete — permanent data loss from bucket"
   },
   {
@@ -437,6 +491,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "ask",
     "description": "AWS S3 force-delete bucket — removes bucket and all contents"
   },
   {
@@ -445,6 +500,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "AWS EC2 terminate instances — permanent instance destruction"
   },
   {
@@ -453,6 +509,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "AWS IAM destructive operation — may break permissions/access"
   },
   {
@@ -461,6 +518,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "ask",
     "description": "AWS RDS delete without final snapshot — permanent data loss"
   },
   {
@@ -469,6 +527,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "AWS CloudFormation stack deletion — destroys all stack resources"
   },
   {
@@ -477,6 +536,7 @@
     "severity": "high",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "AWS security group opened to all IPs — public exposure"
   },
   {
@@ -485,6 +545,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "AWS Lambda function deletion — service disruption"
   },
   {
@@ -493,6 +554,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "MongoDB drop database — irreversible data loss"
   },
   {
@@ -501,6 +563,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "MongoDB drop collection — irreversible data loss"
   },
   {
@@ -509,6 +572,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "Redis FLUSHALL/FLUSHDB — deletes all keys from all/current database"
   },
   {
@@ -517,6 +581,7 @@
     "severity": "high",
     "category": "data",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Redis CONFIG SET — runtime configuration change, potential data loss"
   },
   {
@@ -525,6 +590,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "PostgreSQL database drop — irreversible data loss"
   },
   {
@@ -533,6 +599,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "deny",
     "description": "MySQL database drop — irreversible data loss"
   },
   {
@@ -541,6 +608,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "ask",
     "description": "iptables default policy DROP — may lock out remote access"
   },
   {
@@ -549,6 +617,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "ask",
     "description": "Disabling firewall — removes network security"
   },
   {
@@ -557,6 +626,7 @@
     "severity": "high",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "iptables NAT redirect — traffic interception"
   },
   {
@@ -565,6 +635,7 @@
     "severity": "critical",
     "category": "system",
     "action": "block",
+    "enforcement": "ask",
     "description": "Disabling critical security service — degrades system security"
   },
   {
@@ -573,6 +644,7 @@
     "severity": "high",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Changing user password — verify authorization"
   },
   {
@@ -581,6 +653,7 @@
     "severity": "high",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Creating user with elevated privileges — privilege escalation"
   },
   {
@@ -589,6 +662,7 @@
     "severity": "high",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Editing sudoers — privilege escalation risk"
   },
   {
@@ -597,6 +671,7 @@
     "severity": "critical",
     "category": "system",
     "action": "block",
+    "enforcement": "ask",
     "description": "Disabling SELinux — removes mandatory access controls"
   },
   {
@@ -605,6 +680,7 @@
     "severity": "medium",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Upgrading pip itself — may break production environment"
   },
   {
@@ -613,6 +689,7 @@
     "severity": "high",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Python one-liner with eval/exec — arbitrary code execution"
   },
   {
@@ -621,6 +698,7 @@
     "severity": "high",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Unsetting critical environment variable — may break system/tools"
   },
   {
@@ -629,6 +707,7 @@
     "severity": "high",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Overwriting PATH without preserving existing — breaks command resolution"
   },
   {
@@ -637,6 +716,7 @@
     "severity": "critical",
     "category": "system",
     "action": "block",
+    "enforcement": "warn",
     "description": "Setting LD_PRELOAD — library injection / privilege escalation"
   },
   {
@@ -645,6 +725,7 @@
     "severity": "high",
     "category": "filesystem",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Secure file destruction — irrecoverable deletion"
   },
   {
@@ -653,6 +734,7 @@
     "severity": "critical",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "deny",
     "description": "Overwriting critical system file — may break system"
   },
   {
@@ -661,6 +743,7 @@
     "severity": "high",
     "category": "filesystem",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Deleting system logs — destroys audit trail"
   },
   {
@@ -669,6 +752,7 @@
     "severity": "high",
     "category": "filesystem",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Truncating system log — destroys forensic evidence"
   },
   {
@@ -677,6 +761,7 @@
     "severity": "medium",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Pushing directly to protected branch — use pull request workflow"
   },
   {
@@ -685,6 +770,7 @@
     "severity": "medium",
     "category": "git",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Rebasing onto protected branch — may rewrite shared history"
   },
   {
@@ -693,6 +779,7 @@
     "severity": "high",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Modifying CI/CD configuration — pipeline tampering risk"
   },
   {
@@ -701,6 +788,7 @@
     "severity": "medium",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Global npm install — runs install scripts with user privileges"
   },
   {
@@ -709,6 +797,7 @@
     "severity": "medium",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "pip install with safety bypass flags — dependency risk"
   },
   {
@@ -717,6 +806,7 @@
     "severity": "high",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Ruby gem install without verification — supply chain risk"
   },
   {
@@ -725,6 +815,7 @@
     "severity": "high",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Changing npm registry to non-default — supply chain risk"
   },
   {
@@ -733,6 +824,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "GCP project deletion — destroys all resources in project"
   },
   {
@@ -741,6 +833,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "GCP IAM public access — exposes resources to everyone"
   },
   {
@@ -749,6 +842,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "Azure resource group deletion — destroys all resources in group"
   },
   {
@@ -757,6 +851,7 @@
     "severity": "high",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Helm release deletion with purge — removes release history"
   },
   {
@@ -765,6 +860,7 @@
     "severity": "critical",
     "category": "data",
     "action": "block",
+    "enforcement": "ask",
     "description": "etcd prefix deletion — may destroy cluster state"
   },
   {
@@ -773,6 +869,7 @@
     "severity": "medium",
     "category": "crypto",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Removing all SSH keys from agent — may break SSH access"
   },
   {
@@ -781,6 +878,7 @@
     "severity": "high",
     "category": "crypto",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Deleting GPG keys — may lose ability to decrypt data"
   },
   {
@@ -789,6 +887,7 @@
     "severity": "critical",
     "category": "filesystem",
     "action": "block",
+    "enforcement": "deny",
     "description": "Writing zeros/random to device/file — data destruction"
   },
   {
@@ -797,6 +896,7 @@
     "severity": "medium",
     "category": "system",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Clearing/disabling shell history — anti-forensics"
   },
   {
@@ -805,6 +905,7 @@
     "severity": "medium",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Netcat listener — potential backdoor"
   },
   {
@@ -813,6 +914,7 @@
     "severity": "medium",
     "category": "exfiltration",
     "action": "warn",
+    "enforcement": "warn",
     "description": "SCP sensitive files to external host — data exfiltration risk"
   },
   {
@@ -821,6 +923,7 @@
     "severity": "critical",
     "category": "infrastructure",
     "action": "block",
+    "enforcement": "ask",
     "description": "AWS S3 public ACL — exposes data to the internet"
   },
   {
@@ -829,6 +932,7 @@
     "severity": "medium",
     "category": "infrastructure",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Docker exec as root — elevated container privileges"
   },
   {
@@ -837,6 +941,7 @@
     "severity": "medium",
     "category": "supply-chain",
     "action": "warn",
+    "enforcement": "warn",
     "description": "npm audit fix --force — may install breaking major version changes"
   },
   {
@@ -845,6 +950,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "deny",
     "description": "Base64-encoded payload piped to base64 -d and executed — common obfuscation for hostile shell commands."
   },
   {
@@ -853,6 +959,7 @@
     "severity": "high",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "npx execution of a package outside the trusted scope (@anthropic-ai, @enchanter-ai, @modelcontextprotocol). Verify package provenance."
   },
   {
@@ -861,6 +968,7 @@
     "severity": "high",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "uvx execution of a package outside trusted GitHub orgs (anthropics, enchanter-ai). Verify provenance."
   },
   {
@@ -869,6 +977,7 @@
     "severity": "critical",
     "category": "network",
     "action": "block",
+    "enforcement": "ask",
     "description": "Direct 'claude mcp add' of an arbitrary package via npx/uvx/pnpm dlx launcher — MCP supply chain exposure. Verify server identity first."
   },
   {
@@ -877,6 +986,7 @@
     "severity": "high",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Claude Code plugin install from an untrusted marketplace (not enchanter-ai or anthropic). Verify maintainer + marketplace.json integrity."
   },
   {
@@ -885,6 +995,7 @@
     "severity": "high",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "MCP inspector using unencrypted http:// transport to a non-local host — credentials in transit."
   },
   {
@@ -893,6 +1004,7 @@
     "severity": "high",
     "category": "network",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Clone-then-execute compound chain — clones untrusted repo and immediately runs code from it. Classic supply-chain attack surface."
   },
   {
@@ -901,6 +1013,7 @@
     "severity": "high",
     "category": "filesystem",
     "action": "warn",
+    "enforcement": "warn",
     "description": "Direct Bash write to .claude/settings.json or settings.local.json bypasses hook-manifest review. Settings changes should go through /plugin install."
   }
 ]
