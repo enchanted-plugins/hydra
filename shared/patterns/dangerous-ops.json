@@ -172,7 +172,7 @@
   },
   {
     "id": "reverse-shell-bash",
-    "pattern": "bash\\s+-i\\s+>\\s*/dev/tcp/",
+    "pattern": "bash\\s+-i\\s+.*/dev/tcp/",
     "severity": "critical",
     "category": "network",
     "action": "block",
