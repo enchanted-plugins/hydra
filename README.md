@@ -154,9 +154,11 @@ GitHub Secret Scanning runs on push. Snyk runs in CI. semgrep runs in a pipeline
 
 Hydra hooks into Claude Code's tool lifecycle. `scan-secrets.sh` fires on every Write/Edit. `guard-action.sh` fires on every Bash call — **before** it executes. Exit code 2 blocks the tool entirely. The secret never reaches the file. The `rm -rf /` never runs.
 
-### It blocks commands, not just reports them
+### Three enforcement tiers, shadow-mode first
 
-Action-guard is a **PreToolUse** hook — it sees the command before Claude Code executes it. When it detects `rm -rf /`, `DROP TABLE`, `curl | bash`, or a reverse shell, it currently emits an advisory warning to stderr and lets the command proceed (exit 0). A narrow fail-closed deny-tier — actually cancelling the most catastrophic, irreversible ops via exit code 2 — is on the roadmap (shadow-mode first).
+Action-guard is a **PreToolUse** hook — it sees the command before Claude Code executes it. It classifies each command into three tiers: **deny** (23 catastrophic/irreversible ops — `rm -rf /`, `mkfs`, `dd of=/dev/*`, reverse shells, `curl | bash`, `DROP TABLE|DATABASE`, overwriting `/etc/passwd`…), **ask** (26 costly-but-legitimate infra ops — `terraform destroy`, `kubectl delete namespace`, `aws … --force`, force-push to a release branch — surfaced to the human), and **warn** (advisory only).
+
+It ships in **shadow mode** (`HYDRA_ENFORCE` unset): it logs what it *would* deny/ask to the audit trail (`would_deny`/`would_ask`) but **blocks nothing** (exit 0). Set `HYDRA_ENFORCE=enforce` to activate real enforcement via Claude Code's `permissionDecision` — `deny` cancels the call, `ask` prompts the human. The deny tier lives in a committed, read-only `policy.json` that the agent's own edits to `state/config.json` cannot lower; an FP-corpus CI gate (`scripts/ci-fp-gate.py`) fails the build if any of ~109 normal developer commands would be denied.
 
 ```
 [Hydra] BLOCKED: Recursive force delete from filesystem root (mode: balanced)

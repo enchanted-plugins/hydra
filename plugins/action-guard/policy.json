@@ -1,0 +1,36 @@
+{
+  "_comment": "COMMITTED, READ-ONLY enforcement floor for action-guard (VF-05). This file is git-TRACKED and is the source of truth for the deny tier. The agent-writable state/config.json (gitignored) may only RAISE strictness (promote_to_ask / promote_to_deny); it can NEVER remove an id from this deny list nor lower a tier. The hook reads the deny tier from THIS file, not from state/. Do not move this under state/.",
+  "version": 1,
+  "policy_id": "action-guard-floor-v1",
+  "enforce_floor": "deny",
+  "shadow_default": true,
+  "deny": [
+    "rm-recursive-force-root",
+    "rm-recursive-force-home",
+    "rm-recursive-etc",
+    "sudo-rm",
+    "mkfs-format",
+    "dd-write-device",
+    "dd-if-dev-zero",
+    "curl-pipe-bash",
+    "wget-pipe-bash",
+    "base64-decode-exec",
+    "reverse-shell-bash",
+    "reverse-shell-nc",
+    "shutdown-reboot",
+    "kill-all-processes",
+    "overwrite-etc-hosts",
+    "drop-table",
+    "truncate-table",
+    "delete-no-where",
+    "psql-drop",
+    "mysql-drop",
+    "mongo-drop-database",
+    "mongo-drop-collection",
+    "redis-flushall"
+  ],
+  "deny_heuristics": [
+    "subcommand-overflow"
+  ],
+  "notes": "deny = catastrophic/irreversible ONLY: filesystem/system destruction, backdoors/reverse shells, remote-exec pipes (curl|bash, base64 -d|bash), whole-table/collection/database/keyspace data wipes, overwrite of /etc/{passwd,shadow,sudoers,...}, shutdown/reboot, kill -9 -1. The ask tier (costly-but-legitimate infra ops) lives in shared/patterns/dangerous-ops.json as the per-rule enforcement field; the deny floor here overrides that field upward and cannot be lowered by config."
+}
