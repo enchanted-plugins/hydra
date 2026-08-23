@@ -1,6 +1,6 @@
 {
   "name": "full",
-  "description": "Meta-plugin that installs every Hydra plugin at once via dependency resolution. Installs: hydra-action-guard, hydra-audit-trail, hydra-config-shield, hydra-secret-scanner, hydra-vuln-detector.",
+  "description": "Meta-plugin that installs every Hydra plugin at once via dependency resolution. Installs: hydra-action-guard, hydra-audit-trail, hydra-canary, hydra-capability-fence, hydra-capability-shield, hydra-config-shield, hydra-egress-monitor, hydra-egress-shield, license-gate, hydra-package-gate, hydra-reach-filter, sbom-emitter, hydra-secret-scanner, hydra-state-integrity, hydra-vuln-detector.",
   "version": "1.0.0",
   "author": { "name": "enchanter-ai" },
   "license": "MIT",
@@ -8,8 +8,18 @@
   "dependencies": [
     "hydra-action-guard",
     "hydra-audit-trail",
+    "hydra-canary",
+    "hydra-capability-fence",
+    "hydra-capability-shield",
     "hydra-config-shield",
+    "hydra-egress-monitor",
+    "hydra-egress-shield",
+    "license-gate",
+    "hydra-package-gate",
+    "hydra-reach-filter",
+    "sbom-emitter",
     "hydra-secret-scanner",
+    "hydra-state-integrity",
     "hydra-vuln-detector"
   ]
 }

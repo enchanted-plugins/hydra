@@ -11,7 +11,7 @@
     {
       "name": "full",
       "source": "./plugins/full",
-      "description": "Meta-plugin. One install pulls in all 11 Hydra plugins via dependency resolution.",
+      "description": "Meta-plugin. One install pulls in all 15 Hydra plugins via dependency resolution.",
       "category": "meta"
     },
     {
@@ -96,6 +96,12 @@
       "name": "reach-filter",
       "source": "./plugins/reach-filter",
       "description": "Reachability-aware SCA post-filter. Consumes vuln-detector audit.jsonl + lich call-graph (when available) and emits a reach-classified subset distinguishing reachable vulnerabilities from present-but-unreachable. Operator-invoked. Closes F-039.",
+      "category": "security"
+    },
+    {
+      "name": "state-integrity",
+      "source": "./plugins/state-integrity",
+      "description": "Defense-of-defense layer. Signs and verifies Hydra's own defense-state files (active-canaries.json, egress-policy.json, capability-policy.json, rate-policy.json, hooks.json) so adversarial corruption can't silently disable a guard. Closes R-020 (F-PT-11/12/13/17).",
       "category": "security"
     }
   ]

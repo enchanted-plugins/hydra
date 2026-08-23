@@ -12,7 +12,7 @@ This plugin has no hooks, skills, or agents of its own. It exists so you can ins
 Claude Code resolves the dependencies and installs the 15 functional plugins:
 
 Scanner plugins (the original lineup, each with an agent):
-- `hydra-action-guard` — pre-execution Bash command classifier (advisory)
+- `hydra-action-guard` — pre-execution Bash command classifier (shadow-first 3-tier: deny/ask/warn)
 - `hydra-audit-trail` — comprehensive security event logging
 - `hydra-config-shield` — session-start repo-config poisoning scanner
 - `hydra-secret-scanner` — real-time secret detection in writes
