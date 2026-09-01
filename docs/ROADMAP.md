@@ -34,7 +34,7 @@ The first 5 plugins answer the 5 fundamental questions of AI-assisted developmen
 | 1 | **Wixie** | What did I say? (prompt quality) | Gauss Convergence, Boolean SAT, Game Theory, Cross-Domain Adaptation | v3.0.0 | Shipped — 7 plugins |
 | 2 | **Emu** | What did I spend? (token health) | Markov Drift, Shannon Compression, Linear Runway, Atomic Serialization | v2.0.0 | Shipped — 4 plugins |
 | 3 | **Crow** | What just happened? (change comprehension) | Bayesian Trust, Semantic Diff, Information-Gain, Session Continuity | v1.0.0 | Shipped — 5 plugins |
-| 4 | **Hydra** | Is it safe? (security) | Aho-Corasick, Shannon Entropy, Config Poisoning, Phantom Dependency, EMA Posture Decay | v1.0.0 | Shipped — 6 plugins |
+| 4 | **Hydra** | Is it safe? (security) | Aho-Corasick, Shannon Entropy, Config Poisoning, Phantom Dependency, EMA Posture Decay | v2.2.0 | Shipped — 15 plugins |
 | 5 | **Pech** | What did it cost? (spend tracking) | Exponential Smoothing, Budget Forecasting | — | Not started |
 
 ### Milestone: 5 plugins shipped

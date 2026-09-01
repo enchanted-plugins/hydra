@@ -22,7 +22,7 @@ The [SUPPORT.md](../SUPPORT.md) page has the exact links for each.
 
 No. Hydra is an independent open-source plugin for [Claude Code](https://github.com/anthropics/claude-code) (Anthropic's CLI). It's published by [enchanter-ai](https://github.com/enchanter-ai) under the MIT license and is not affiliated with, endorsed by, or supported by Anthropic.
 
-## How do the 2,011 patterns relate to OWASP Top 10?
+## How do the 2,039 patterns relate to OWASP Top 10?
 
 Each pattern belongs to exactly one rule class — Config / Action / Secret / Vuln / Phantom / Overflow — and the vuln-detector's patterns additionally cite OWASP LLM Top 10 categories (LLM01 Prompt injection, LLM02 Insecure output handling, LLM06 Sensitive information disclosure, etc.) and CWE IDs where they apply. The [glossary](glossary.md) has the full mapping table. Hydra does not claim to "replace" OWASP-trained scanners — it focuses on patterns specific to AI-assisted development contexts (poisoned hook configs, prompt-injection-to-RCE chains, LLM-specific exfiltration paths).
 

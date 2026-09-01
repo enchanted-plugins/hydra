@@ -8,7 +8,7 @@ Open [index.html](index.html) in a browser to explore the architecture interacti
 
 ## At a Glance
 
-**5 plugins. 5 agents. 2,011 patterns. 20 databases. 98 CWEs. 8 algorithms. 35 tests.**
+**5 plugins. 5 agents. 2,039 patterns. 20 databases. 98 CWEs. 8 algorithms. 35 tests.**
 
 ## Diagrams
 
@@ -29,19 +29,19 @@ Open [index.html](index.html) in a browser to explore the architecture interacti
 | vuln-detector | PostToolUse | Write/Edit | 15s | R3 |
 | audit-trail | PostToolUse | All | 10s | R8 |
 
-## Pattern Databases (20 files, 2,011 patterns)
+## Pattern Databases (20 files, 2,039 patterns)
 
-### Original 5 Databases (887 patterns)
+### Original 5 Databases (909 patterns)
 
 | Database | Patterns | Coverage |
 |----------|----------|----------|
-| secrets.json | 310 | API keys, tokens, private keys, connection strings — 80+ providers |
+| secrets.json | 319 | API keys, tokens, private keys, connection strings — 80+ providers |
 | vulns.json | 156 | OWASP Top 10 — SQL injection, XSS, path traversal, command injection |
-| dangerous-ops.json | 105 | Destructive commands — rm -rf, DROP TABLE, force push, reverse shells |
-| config-attacks.json | 117 | Malicious repo configs — .claude hooks, .vscode autorun, .npmrc hijack |
+| dangerous-ops.json | 113 | Destructive commands — rm -rf, DROP TABLE, force push, reverse shells |
+| config-attacks.json | 122 | Malicious repo configs — .claude hooks, .vscode autorun, .npmrc hijack |
 | slopsquatting.json | 199 | AI-hallucinated packages + typosquats across 5 ecosystems |
 
-### New 15 Databases (1,124 patterns)
+### New 15 Databases (1,130 patterns)
 
 | Database | Patterns | Attack Surface |
 |----------|----------|----------------|
@@ -52,7 +52,7 @@ Open [index.html](index.html) in a browser to explore the architecture interacti
 | auth-bypass.json | 80 | JWT, session, CSRF, OAuth, cookies, IDOR, mass assignment |
 | ssrf-patterns.json | 61 | Cloud metadata, localhost bypass, URL scheme abuse, webhooks |
 | api-security.json | 81 | GraphQL, REST, rate limiting, CORS, WebSocket, gRPC |
-| ai-agent-attacks.json | 110 | Prompt injection, MCP poisoning, jailbreaks, rules backdoors |
+| ai-agent-attacks.json | 116 | Prompt injection, MCP poisoning, jailbreaks, rules backdoors |
 | regex-dos.json | 44 | Nested quantifiers, overlapping alternation, user-created regex |
 | deserialization.json | 69 | Java, Python, PHP, Ruby, .NET, Node.js, Go deserialization |
 | file-operations.json | 50 | Path traversal, zip slip, TOCTOU, upload, archive, LFI/RFI |
@@ -64,9 +64,9 @@ Open [index.html](index.html) in a browser to explore the architecture interacti
 ## Execution Order
 
 ```
-1. Session Start  → config-shield scans repo configs (117 signatures)
-2. Bash call      → action-guard classifies → BLOCK or ALLOW (105 patterns)
-3. Write/Edit     → secret-scanner (310 patterns) + vuln-detector (1,596 patterns across 16 databases) scan content
+1. Session Start  → config-shield scans repo configs (122 signatures)
+2. Bash call      → action-guard classifies → BLOCK or ALLOW (113 patterns)
+3. Write/Edit     → secret-scanner (319 patterns) + vuln-detector (1,286 patterns across 16 databases) scan content
 4. Any tool       → audit-trail logs event + updates EMA posture
 ```
 

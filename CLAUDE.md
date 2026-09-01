@@ -34,13 +34,13 @@ When a module conflicts with a plugin-local instruction, the plugin wins — but
 
 ## Lifecycle
 
-The 5 scanner plugins (table below) carry agents and drive the per-write detection lifecycle. The other 10 functional plugins (package-gate, egress-monitor, canary, capability-fence, license-gate, sbom-emitter, capability-shield, egress-shield, reach-filter, state-integrity) are agentless — they run as advisory hooks, opt-in blockers, or skill-invoked compliance tools. See `README.md § 15 Plugins, 5 Agents, 1,844 Patterns` for the full plugin matrix.
+The 5 scanner plugins (table below) carry agents and drive the per-write detection lifecycle. The other 10 functional plugins (package-gate, egress-monitor, canary, capability-fence, license-gate, sbom-emitter, capability-shield, egress-shield, reach-filter, state-integrity) are agentless — they run as advisory hooks, opt-in blockers, or skill-invoked compliance tools. See `README.md § 15 Plugins, 5 Agents, 2,039 Patterns` for the full plugin matrix.
 
 | Plugin | Hook | Purpose |
 |--------|------|---------|
 | config-shield | SessionStart | Scan repo configs for CVE-matched attack signatures (R5) |
 | action-guard | PreToolUse (Bash) | **Block** dangerous commands (exit 2); subcommand-overflow check (R4, R7) |
-| secret-scanner | PostToolUse (Write\|Edit\|MultiEdit) | 310 patterns + Shannon entropy (R1, R2) |
+| secret-scanner | PostToolUse (Write\|Edit\|MultiEdit) | 319 patterns + Shannon entropy (R1, R2) |
 | vuln-detector | PostToolUse (Write\|Edit\|MultiEdit) | OWASP Top 10 / CWE map, 156 patterns (R3) |
 | audit-trail | PostToolUse (all tools) | JSONL log + EMA posture (R8) |
 
@@ -48,7 +48,7 @@ The 5 scanner plugins (table below) carry agents and drive the per-write detecti
 
 R1 Aho-Corasick Pattern Engine · R2 Shannon Entropy Analysis · R3 OWASP Vulnerability Graph · R4 Markov Action Classification · R5 Config Poisoning Detection · R6 Phantom Dependency Detection · R7 Subcommand Overflow · R8 EMA Posture Decay. Derivations: `docs/science/README.md`.
 
-Pattern databases: **20 files, 2,011 patterns, 98 CWEs.** Original 5 (secrets 310, vulns 156, dangerous-ops 105, config-attacks 117, slopsquatting 199) + 15 new databases: cicd-attacks 130, container-security 113, iac-misconfig 120, crypto-weakness 90, auth-bypass 80, ssrf-patterns 61, api-security 81, ai-agent-attacks 110, regex-dos 44, deserialization 69, file-operations 50, logging-forgery 41, prototype-pollution 35, dependency-confusion 50, header-security 50.
+Pattern databases: **20 files, 2,039 patterns, 98 CWEs.** Original 5 (secrets 319, vulns 156, dangerous-ops 113, config-attacks 122, slopsquatting 199) + 15 new databases: cicd-attacks 130, container-security 113, iac-misconfig 120, crypto-weakness 90, auth-bypass 80, ssrf-patterns 61, api-security 81, ai-agent-attacks 116, regex-dos 44, deserialization 69, file-operations 50, logging-forgery 41, prototype-pollution 35, dependency-confusion 50, header-security 50.
 
 ## Behavioral contracts
 

@@ -7,7 +7,7 @@
 <p>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-3fb950?style=for-the-badge"></a>
   <img alt="15 plugins" src="https://img.shields.io/badge/Plugins-15-bc8cff?style=for-the-badge">
-  <img alt="1,844 security patterns" src="https://img.shields.io/badge/Patterns-1%2C844-58a6ff?style=for-the-badge">
+  <img alt="2,039 security patterns" src="https://img.shields.io/badge/Patterns-2%2C039-58a6ff?style=for-the-badge">
   <img alt="98 CWEs covered" src="https://img.shields.io/badge/CWEs-98-d29922?style=for-the-badge">
   <img alt="Zero dependencies (bash plus jq)" src="https://img.shields.io/badge/Deps-0-f85149?style=for-the-badge">
   <a href="https://www.repostatus.org/#active"><img alt="Project Status: Active" src="https://www.repostatus.org/badges/latest/active.svg"></a>
@@ -15,7 +15,7 @@
 
 > **An @enchanter-ai product — algorithm-driven, agent-managed, self-learning.**
 
-**15 plugins (+ 1 meta-installer). 5 agents. 1,844 patterns. 8 algorithms. 98 CWEs. 20 attack databases. Zero dependencies.**
+**15 plugins (+ 1 meta-installer). 5 agents. 2,039 patterns. 8 algorithms. 98 CWEs. 20 attack databases. Zero dependencies.**
 
 Plugin count breakdown: 5 scanner plugins (each with a Sonnet/Haiku agent), 4 advisory hook plugins, 2 compliance plugins, 4 opt-in / post-filter plugins (capability-shield, egress-shield, reach-filter, state-integrity), and 1 meta-installer (`full`). Of the 16 directories under `plugins/`, the `full` plugin contains no logic of its own — it exists only to install the other 15 as dependencies.
 
@@ -41,7 +41,7 @@ Built from blood — every pattern traces back to a real CVE, a real breach, or 
 
 **In plain English:** Your AI just typed an AWS key into a committed file, ran `rm -rf ~/`, and pip-installed a typosquatted package. Hydra blocks each one before it lands.
 
-**Technically:** R1 Aho-Corasick pattern engine scans 1,844 patterns across 20 databases (310 secret patterns + 156 OWASP/CWE-mapped vulns + 105 dangerous-ops + more) on every Write/Edit; R2 Shannon entropy analysis catches high-entropy strings that evade regex; R4 Markov Action Classification classifies Bash subcommands and surfaces dangerous ops at PreToolUse via advisory injection (exit 0 + stderr per `../vis/packages/core/conduct/hooks.md`). The corpus is CWE-mapped, not CVE-mapped: of the 1,840 patterns in the CWE/CVE-schema databases, 1,286 (70%) carry a CWE reference and only 64 (3.5%) also carry a specific CVE; no finding is fabricated from heuristics alone.
+**Technically:** R1 Aho-Corasick pattern engine scans 2,039 patterns across 20 databases (319 secret patterns + 156 OWASP/CWE-mapped vulns + 113 dangerous-ops + more) on every Write/Edit; R2 Shannon entropy analysis catches high-entropy strings that evade regex; R4 Markov Action Classification classifies Bash subcommands and surfaces dangerous ops at PreToolUse via advisory injection (exit 0 + stderr per `../vis/packages/core/conduct/hooks.md`). The corpus is CWE-mapped, not CVE-mapped: of the 1,840 patterns in the CWE/CVE-schema databases, 1,286 (70%) carry a CWE reference and only 64 (3.5%) also carry a specific CVE; no finding is fabricated from heuristics alone.
 
 ---
 
@@ -71,7 +71,7 @@ Not for:
 - [The Full Lifecycle](#the-full-lifecycle)
 - [Install](#install)
 - [Quickstart](#quickstart)
-- [15 Plugins, 5 Agents, 1,844 Patterns](#15-plugins-5-agents-1844-patterns)
+- [15 Plugins, 5 Agents, 2,039 Patterns](#15-plugins-5-agents-2039-patterns)
 - [What You Get Per Session](#what-you-get-per-session)
 - [Roadmap](#roadmap)
 - [The Science Behind Hydra](#the-science-behind-hydra)
@@ -91,7 +91,7 @@ Not for:
 | | Count |
 |---|---|
 | **Pattern databases** | 20 |
-| **Security patterns** | 1,844 |
+| **Security patterns** | 2,039 |
 | **CWEs covered** | 98 |
 | **CVEs referenced** | 30+ |
 | **Attack categories** | 120+ |
@@ -248,14 +248,14 @@ cd hydra
 ```
 
 Without `./scripts/bootstrap.sh`, conduct imports will silently miss and Claude Code's `@`-loader will fail-soft. Always bootstrap first.
-## 15 Plugins, 5 Agents, 1,844 Patterns
+## 15 Plugins, 5 Agents, 2,039 Patterns
 
 Five **scanner plugins** (the original lineup, each with a dedicated agent), four **advisory hook plugins** (added 2026-05-05) that close supply-chain, exfil, prompt-injection, and capability-fence gaps, two **compliance plugins** (license-gate, sbom-emitter — added 2026-05-05, originally drafted in pech then re-homed here as supply-chain belongs under security), and four **opt-in / post-filter plugins** (capability-shield, egress-shield, reach-filter, state-integrity) that add blocking enforcement or reachability filtering on top of the advisory layer. A sixteenth directory, `plugins/full/`, is a **meta-installer only** — no hooks, no skills, no agent — listed separately below.
 
 | Plugin | Command | What | Agent |
 |--------|---------|------|-------|
 | secret-scanner | `/hydra:secrets` | 319 secret patterns + entropy analysis | scanner (Haiku) |
-| vuln-detector | `/hydra:vulns` | 1,525 vulnerability patterns across 98 CWEs | analyzer (Sonnet) |
+| vuln-detector | `/hydra:vulns` | 1,286 vulnerability patterns across 98 CWEs | analyzer (Sonnet) |
 | action-guard | `/hydra:safety` | 113 dangerous ops; **advisory** (was blocking) | guardian (Sonnet) |
 | config-shield | `/hydra:config-check` | 122 config attack signatures, 7 CVEs | inspector (Sonnet) |
 | audit-trail | `/hydra:audit` | HMAC hash-chain JSONL + audit-verify skill | chronicler (Haiku) |
@@ -375,7 +375,7 @@ Cross-session EMA of threat rates. Dismissed patterns decay. Chronic patterns es
 
 ## The 20 Pattern Databases
 
-### Threat Intelligence (1,844 patterns across 20 databases)
+### Threat Intelligence (2,039 patterns across 20 databases)
 
 | Database | Patterns | What it detects |
 |----------|----------|-----------------|
@@ -416,7 +416,7 @@ Cross-session EMA of threat rates. Dismissed patterns decay. Chronic patterns es
 
 | | Hydra | GitHub Secret Scanning | Snyk | semgrep | GitGuardian |
 |---|---|---|---|---|---|
-| Patterns | **1,844** | ~200 | ~1,000 | ~2,500 (rules) | ~400 |
+| Patterns | **2,039** | ~200 | ~1,000 | ~2,500 (rules) | ~400 |
 | CWE coverage | **98 CWEs** | Secrets only | Varies | Varies | Secrets only |
 | Scan timing | **Per-write** (real-time) | Push-time | CI pipeline | CI pipeline | Push-time |
 | Command guarding | **PreToolUse advisory (exit 0 + stderr injection)** | — | — | — | — |
