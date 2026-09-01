@@ -24,7 +24,7 @@ If nothing fires, see [troubleshooting.md](troubleshooting.md) § Hooks don't fi
 /config-check
 ```
 
-Runs the full config scan on-demand. Output shows pattern matches across 2,011 patterns covering 98 CWEs, organized by severity.
+Runs the full config scan on-demand. Output shows pattern matches across 2,039 patterns covering 98 CWEs, organized by severity.
 
 ## 4. Scan for secrets
 
