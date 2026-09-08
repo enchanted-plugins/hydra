@@ -23,7 +23,7 @@
     {
       "name": "vuln-detector",
       "source": "./plugins/vuln-detector",
-      "description": "OWASP Top 10 and CWE-mapped vulnerability detection in code changes.",
+      "description": "OWASP Top 10 and CWE-mapped vulnerability detection in code changes. SCOPE TRUTH: a single-line regex prefilter, not a dataflow engine - it cannot follow taint across lines or functions, and several rules are shape-bound to HTTP handlers. Emits COVERAGE alongside findings, so an empty result reports whether the code was actually analysed rather than implying it is clean.",
       "category": "security"
     },
     {
@@ -65,7 +65,7 @@
     {
       "name": "capability-fence",
       "source": "./plugins/capability-fence",
-      "description": "Best-effort subagent-escape detection. PreToolUse hook compares the invoked tool against the active skill's allowed-tools frontmatter; logs out-of-lane invocations. Observability only — runtime sandboxing requires harness/SDK work.",
+      "description": "Best-effort subagent-escape detection. PreToolUse hook compares the invoked tool against the active skill's allowed-tools frontmatter; logs out-of-lane invocations. Observability only \u2014 runtime sandboxing requires harness/SDK work.",
       "category": "security"
     },
     {

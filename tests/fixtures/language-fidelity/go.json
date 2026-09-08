@@ -1,0 +1,47 @@
+{
+  "_comment": "Idiomatic, genuinely vulnerable Go — one proving case per rule that claims language 'go'. A rule tagged 'go' with no entry here, or an entry it fails to match, fails test-corpus-language-fidelity.py. 'taint_bound' rules are exempt from the positive requirement because they intentionally require an HTTP taint token on the sink line; their limitation is declared through the coverage contract instead of being papered over with more regexes.",
+  "language": "go",
+  "positive": {
+    "hardcoded-password-literal": "\tpassword := \"sup3rs3cret\"",
+    "hardcoded-secret-key": "\tsecretKey := \"AKIAIOSFODNN7EXAMPLE\"",
+    "cors-wildcard": "\tw.Header().Set(\"Access-Control-Allow-Origin\", \"*\")",
+    "weak-hash-md5": "\tsum := md5.Sum(data)",
+    "weak-hash-sha1": "\th := sha1.New()",
+    "tls-verify-disabled": "\ttr := &tls.Config{InsecureSkipVerify: true}",
+    "hardcoded-ip-bind-all": "\thttp.ListenAndServe(\"0.0.0.0:8080\", nil)",
+    "insecure-websocket-ws": "\tc, _ := websocket.Dial(\"ws://api.example.com/feed\", \"\", \"/\")",
+    "xxe-go-decoder": "\tdec := xml.NewDecoder(body)",
+    "ssrf-cloud-metadata": "\tresp, _ := http.Get(\"http://169.254.169.254/latest/meta-data/\")",
+    "insecure-random-go": "\ttoken := rand.Intn(1000000)",
+    "sql-injection-go-sprintf": "\tq := fmt.Sprintf(\"SELECT * FROM users WHERE id = %s\", uid)",
+    "sql-injection-go-concat": "\trows, _ := db.Query(\"SELECT * FROM users WHERE name = '\" + name + \"'\")",
+    "weak-crypto-des": "\tblock, _ := des.NewCipher(key)",
+    "weak-crypto-rsa-small-key": "\tkey, _ := rsa.GenerateKey(crand.Reader, 1024)",
+    "insecure-http-url": "\tresp, _ := http.Get(\"http://api.partner.com/v1/data\")",
+    "weak-password-hash-md5": "\thashed := md5.Sum([]byte(userPassword))"
+  },
+  "taint_bound": {
+    "command-injection-go": "requires an HTTP taint token (r.URL / mux.Vars / c.Query) on the exec.Command line; cannot see config-file, argv or env taint",
+    "path-traversal-go": "requires an HTTP taint token on the os.Open/filepath.Join line; cannot see config-file, argv or env taint",
+    "ssrf-go-http-get": "requires an HTTP taint token on the http.Get line",
+    "hardcoded-ip-private": "advisory informational rule; no single canonical vulnerable form",
+    "hardcoded-connection-string": "covered by credential rules; no distinct Go-only proving form",
+    "weak-crypto-ecb-mode": "ECB detection depends on multi-line cipher-mode construction",
+    "ssrf-internal-network": "overlaps ssrf-cloud-metadata; informational",
+    "xml-bomb-billion-laughs": "matches XML document content, not Go source"
+  },
+  "negative": [
+    "\tsum := sha256.Sum256(data)",
+    "\tn, err := crand.Read(buf)",
+    "\tk, _ := rsa.GenerateKey(crand.Reader, 4096)",
+    "\tblock, _ := aes.NewCipher(key)",
+    "\thttp.ListenAndServe(\"127.0.0.1:8080\", nil)",
+    "\tresp, _ := http.Get(\"https://api.partner.com/v1/data\")",
+    "\tpasswordHash := bcrypt.GenerateFromPassword(pw, 12)",
+    "\trows, _ := db.Query(\"SELECT * FROM users WHERE id = $1\", uid)",
+    "\ttr := &tls.Config{InsecureSkipVerify: false}",
+    "\tc, _ := websocket.Dial(\"wss://api.example.com/feed\", \"\", \"/\")",
+    "\tsecretKeyRef := cfg.Ref",
+    "\tapiSecretName := os.Getenv(\"SECRET_NAME\")"
+  ]
+}

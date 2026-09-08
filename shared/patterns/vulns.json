@@ -1,13 +1,20 @@
 [
   {
     "id": "sql-injection-concat",
-    "pattern": "(?:SELECT|INSERT|UPDATE|DELETE|DROP|UNION)\\s.*\\+\\s*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
+    "pattern": "(?:SELECT|INSERT|UPDATE|DELETE|DROP|UNION)\\s.*\\+\\s*(?:req\\.|request\\.|params\\.|params\\[|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)|(?:execute|executemany)\\s*\\(\\s*['\\\"][^'\\\"]*(?:SELECT|INSERT|UPDATE|DELETE)[^'\\\"]*['\\\"]\\s*\\+",
     "cwe": "CWE-89",
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
     "description": "SQL query built via string concatenation with user input",
-    "language": ["javascript", "typescript", "python", "java", "ruby", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "sql-injection-fstring",
@@ -17,7 +24,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "SQL query built via f-string interpolation",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "sql-injection-format",
@@ -27,17 +36,21 @@
     "severity": "high",
     "category": "injection",
     "description": "SQL query built via .format() with potential user input",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "sql-injection-percent",
-    "pattern": "(?:SELECT|INSERT|UPDATE|DELETE).*%\\s*\\(",
+    "pattern": "(?:execute|executemany|raw)\\s*\\(\\s*['\\\"][^'\\\"]*(?:SELECT|INSERT|UPDATE|DELETE)[^'\\\"]*['\\\"]\\s*%",
     "cwe": "CWE-89",
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
     "description": "SQL query built via % string formatting",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "sql-injection-template-literal",
@@ -47,7 +60,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "SQL query built via template literal interpolation",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-innerhtml",
@@ -57,7 +73,10 @@
     "severity": "high",
     "category": "xss",
     "description": "Direct innerHTML assignment — potential XSS if user-controlled",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-document-write",
@@ -67,7 +86,10 @@
     "severity": "high",
     "category": "xss",
     "description": "document.write with potential user-controlled content",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-dangerously-set-html",
@@ -77,7 +99,10 @@
     "severity": "medium",
     "category": "xss",
     "description": "React dangerouslySetInnerHTML — ensure input is sanitized",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-v-html",
@@ -87,7 +112,10 @@
     "severity": "medium",
     "category": "xss",
     "description": "Vue v-html directive — potential XSS",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "path-traversal-join",
@@ -97,7 +125,11 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "File path constructed with user-controlled input",
-    "language": ["python", "javascript", "typescript"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "path-traversal-open",
@@ -107,7 +139,11 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "File read with user-controlled path",
-    "language": ["python", "javascript", "typescript"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "command-injection-subprocess-shell",
@@ -117,7 +153,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "subprocess with shell=True — command injection risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "command-injection-os-system",
@@ -127,7 +165,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "os.system with user-controlled input",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "command-injection-exec",
@@ -137,7 +177,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "exec() with user-controlled input — command injection",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "command-injection-eval",
@@ -147,7 +190,13 @@
     "severity": "critical",
     "category": "injection",
     "description": "eval() with user-controlled input — code injection",
-    "language": ["javascript", "typescript", "python", "ruby", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "deserialization-pickle",
@@ -157,7 +206,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "Python pickle deserialization — arbitrary code execution risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "deserialization-yaml-unsafe",
@@ -167,7 +218,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "YAML load without SafeLoader — arbitrary code execution risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "deserialization-marshal",
@@ -177,7 +230,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "Ruby Marshal deserialization — arbitrary code execution risk",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "deserialization-unserialize",
@@ -187,37 +242,63 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "PHP unserialize — object injection risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "hardcoded-password-literal",
-    "pattern": "(?:password|passwd|pwd)\\s*=\\s*['\"][^'\"]{4,}['\"]",
+    "pattern": "(?:password|passwd|pwd)\\s*:?=\\s*['\"][^'\"]{4,}['\"]",
     "cwe": "CWE-798",
     "owasp": "A07:2021",
     "severity": "high",
     "category": "credentials",
     "description": "Hardcoded password literal",
-    "language": ["python", "javascript", "typescript", "java", "ruby", "php", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "ruby",
+      "php",
+      "go"
+    ]
   },
   {
     "id": "hardcoded-secret-key",
-    "pattern": "(?:secret[-_]?key|SECRET[-_]?KEY)\\s*=\\s*['\"][^'\"]{8,}['\"]",
+    "pattern": "(?:[Ss]ecret[-_]?[Kk]ey|SECRET[-_]?KEY|[Aa]pi[-_]?[Ss]ecret)\\s*:?=\\s*['\"][^'\"]{8,}['\"]",
     "cwe": "CWE-798",
     "owasp": "A07:2021",
     "severity": "high",
     "category": "credentials",
     "description": "Hardcoded secret key literal",
-    "language": ["python", "javascript", "typescript", "java", "ruby", "php", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "ruby",
+      "php",
+      "go"
+    ]
   },
   {
     "id": "cors-wildcard",
-    "pattern": "(?:Access-Control-Allow-Origin|cors).*['\"]\\*['\"]",
+    "pattern": "(?:Access-Control-Allow-Origin|cors).*(?:['\\\"]\\*['\\\"]|:\\s*\\*)",
     "cwe": "CWE-346",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
     "description": "CORS wildcard origin — allows any domain to make cross-origin requests",
-    "language": ["javascript", "typescript", "python", "java", "ruby", "php", "go"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "ruby",
+      "php",
+      "go"
+    ]
   },
   {
     "id": "cors-credentials-wildcard",
@@ -227,7 +308,12 @@
     "severity": "high",
     "category": "misconfiguration",
     "description": "CORS with credentials and wildcard origin — severe misconfiguration",
-    "language": ["javascript", "typescript", "python", "java"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java"
+    ]
   },
   {
     "id": "insecure-random-math",
@@ -237,7 +323,10 @@
     "severity": "medium",
     "category": "crypto",
     "description": "Math.random() is not cryptographically secure — use crypto.randomBytes()",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "insecure-random-python",
@@ -247,37 +336,58 @@
     "severity": "medium",
     "category": "crypto",
     "description": "random module is not cryptographically secure — use secrets module",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "weak-hash-md5",
-    "pattern": "(?:hashlib\\.md5|MD5\\.Create|MessageDigest.*MD5|crypto\\.createHash\\(['\"]md5['\"]\\))",
+    "pattern": "(?:(?:hashlib\\.md5|MD5\\.Create|MessageDigest.*MD5|crypto\\.createHash\\(['\"]md5['\"]\\)))|md5\\.(?:Sum|New)\\s*\\(",
     "cwe": "CWE-327",
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
     "description": "MD5 is cryptographically broken — use SHA-256 or stronger",
-    "language": ["python", "javascript", "typescript", "java", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "weak-hash-sha1",
-    "pattern": "(?:hashlib\\.sha1|SHA1\\.Create|MessageDigest.*SHA-1|crypto\\.createHash\\(['\"]sha1['\"]\\))",
+    "pattern": "(?:(?:hashlib\\.sha1|SHA1\\.Create|MessageDigest.*SHA-1|crypto\\.createHash\\(['\"]sha1['\"]\\)))|sha1\\.(?:Sum|New)\\s*\\(",
     "cwe": "CWE-327",
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
     "description": "SHA-1 is deprecated — use SHA-256 or stronger",
-    "language": ["python", "javascript", "typescript", "java", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "open-redirect",
-    "pattern": "(?:redirect|location\\.href|window\\.location)\\s*=.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
+    "pattern": "(?:redirect|location\\.href|window\\.location)\\s*(?:=|\\().*(?:req\\.|request\\.|params\\.|params\\[|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)",
     "cwe": "CWE-601",
     "owasp": "A01:2021",
     "severity": "medium",
     "category": "redirect",
     "description": "Open redirect to user-supplied URL",
-    "language": ["javascript", "typescript", "python", "java", "ruby", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "ssrf-request",
@@ -287,7 +397,11 @@
     "severity": "high",
     "category": "ssrf",
     "description": "HTTP request to user-controlled URL — SSRF risk",
-    "language": ["python", "javascript", "typescript"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xxe-parse",
@@ -297,7 +411,10 @@
     "severity": "high",
     "category": "xxe",
     "description": "XML parsing without explicit XXE protection",
-    "language": ["python", "java"]
+    "language": [
+      "python",
+      "java"
+    ]
   },
   {
     "id": "jwt-none-algorithm",
@@ -307,17 +424,23 @@
     "severity": "critical",
     "category": "auth",
     "description": "JWT with 'none' algorithm — signature bypass",
-    "language": ["javascript", "typescript", "python"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
   {
     "id": "jwt-no-verify",
-    "pattern": "jwt\\.decode\\s*\\(.*verify\\s*=\\s*False",
+    "pattern": "jwt\\.decode\\s*\\(.*(?:verify\\s*=\\s*False|verify_signature['\\\"]?\\s*:\\s*False)",
     "cwe": "CWE-347",
     "owasp": "A02:2021",
     "severity": "critical",
     "category": "auth",
     "description": "JWT decoded without signature verification",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "tls-verify-disabled",
@@ -327,17 +450,26 @@
     "severity": "high",
     "category": "crypto",
     "description": "TLS certificate verification disabled",
-    "language": ["python", "javascript", "typescript", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "go"
+    ]
   },
   {
     "id": "debug-mode-production",
-    "pattern": "(?:DEBUG\\s*=\\s*True|debug\\s*:\\s*true|app\\.debug\\s*=\\s*True)",
+    "pattern": "(?:DEBUG\\s*=\\s*True|debug\\s*:\\s*true|app\\.debug\\s*=\\s*True|\\.run\\s*\\([^)]*debug\\s*=\\s*True)",
     "cwe": "CWE-489",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
     "description": "Debug mode enabled — may expose sensitive information in production",
-    "language": ["python", "javascript", "typescript"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "prototype-pollution",
@@ -347,7 +479,10 @@
     "severity": "high",
     "category": "injection",
     "description": "Potential prototype pollution via user-controlled property",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "regex-dos",
@@ -357,9 +492,11 @@
     "severity": "medium",
     "category": "dos",
     "description": "Regular expression from user input — ReDoS risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "ssti-jinja2-render-string",
     "pattern": "render_template_string\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\+|format|\\{|%)",
@@ -368,7 +505,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Jinja2 render_template_string with user input — server-side template injection",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "ssti-jinja2-from-string",
@@ -378,7 +517,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Jinja2 Template constructed from user input — SSTI risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "ssti-mako-template",
@@ -388,7 +529,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Mako Template with user-controlled content — SSTI risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "ssti-twig-createtemplate",
@@ -398,7 +541,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Twig template created from user input — SSTI risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "ssti-pug-compile",
@@ -408,7 +553,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "Pug template compiled from user input — SSTI risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "ssti-ejs-render",
@@ -418,9 +566,11 @@
     "severity": "critical",
     "category": "injection",
     "description": "EJS template rendered from user input — SSTI risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "ldap-injection-search",
     "pattern": "(?:ldap|ldap3|ldapjs)\\.(?:search|bind|compare|modify)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\+|format|\\$\\{|f['\"])",
@@ -429,7 +579,12 @@
     "severity": "critical",
     "category": "injection",
     "description": "LDAP query with user input — LDAP injection risk",
-    "language": ["python", "javascript", "typescript", "java"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java"
+    ]
   },
   {
     "id": "ldap-injection-filter-concat",
@@ -439,7 +594,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "PHP LDAP search with user input — injection risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "ldap-injection-java",
@@ -449,9 +606,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "Java LDAP search with HTTP request input — injection risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
-
   {
     "id": "nosql-injection-where",
     "pattern": "\\$where\\s*:\\s*.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\+|`)",
@@ -460,7 +618,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "MongoDB $where with user input — NoSQL injection / code execution",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "nosql-injection-regex",
@@ -470,7 +631,10 @@
     "severity": "high",
     "category": "injection",
     "description": "MongoDB $regex with user input — NoSQL injection risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "nosql-injection-operator",
@@ -480,7 +644,10 @@
     "severity": "high",
     "category": "injection",
     "description": "MongoDB query directly from request — NoSQL operator injection risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "nosql-injection-pymongo",
@@ -490,9 +657,10 @@
     "severity": "high",
     "category": "injection",
     "description": "PyMongo query with user input — NoSQL injection risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "graphql-introspection-enabled",
     "pattern": "introspection\\s*:\\s*true",
@@ -501,7 +669,12 @@
     "severity": "medium",
     "category": "misconfiguration",
     "description": "GraphQL introspection enabled — exposes full schema to attackers",
-    "language": ["javascript", "typescript", "python", "java"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java"
+    ]
   },
   {
     "id": "graphql-no-depth-limit",
@@ -511,7 +684,10 @@
     "severity": "medium",
     "category": "dos",
     "description": "GraphQL server without query depth limit — DoS via nested queries",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "graphql-batching-no-limit",
@@ -521,9 +697,11 @@
     "severity": "medium",
     "category": "dos",
     "description": "GraphQL batching enabled without limit — brute force and DoS risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "race-condition-toctou-python",
     "pattern": "(?:os\\.path\\.exists|os\\.path\\.isfile|os\\.access)\\s*\\([^)]+\\)\\s*(?::|\\n)\\s*(?:open|os\\.(?:remove|unlink|rename|chmod|chown))",
@@ -532,7 +710,9 @@
     "severity": "medium",
     "category": "race-condition",
     "description": "TOCTOU race condition — check then act on filesystem without lock",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "race-condition-toctou-node",
@@ -542,9 +722,11 @@
     "severity": "medium",
     "category": "race-condition",
     "description": "TOCTOU race condition — check then act on filesystem without atomicity",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "mass-assignment-express-create",
     "pattern": "\\.create\\s*\\(\\s*(?:req\\.body|request\\.body|ctx\\.request\\.body)",
@@ -553,7 +735,10 @@
     "severity": "high",
     "category": "mass-assignment",
     "description": "ORM create with unsanitized request body — mass assignment vulnerability",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "mass-assignment-express-update",
@@ -563,7 +748,10 @@
     "severity": "high",
     "category": "mass-assignment",
     "description": "ORM update with unsanitized request body — mass assignment vulnerability",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "mass-assignment-spread-body",
@@ -573,7 +761,10 @@
     "severity": "high",
     "category": "mass-assignment",
     "description": "Spreading request body into object — mass assignment risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "mass-assignment-rails",
@@ -583,7 +774,9 @@
     "severity": "high",
     "category": "mass-assignment",
     "description": "Rails mass assignment without strong parameters",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "mass-assignment-django",
@@ -593,9 +786,10 @@
     "severity": "high",
     "category": "mass-assignment",
     "description": "Django create with unpacked request data — mass assignment",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "insecure-file-upload-no-ext-check",
     "pattern": "(?:multer|formidable|busboy|multiparty)\\s*\\(",
@@ -604,7 +798,10 @@
     "severity": "medium",
     "category": "file-upload",
     "description": "File upload middleware — verify extension and content-type validation exists",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "insecure-file-upload-python",
@@ -614,7 +811,9 @@
     "severity": "medium",
     "category": "file-upload",
     "description": "File upload saved without apparent extension/type validation",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "insecure-file-upload-php",
@@ -624,18 +823,26 @@
     "severity": "high",
     "category": "file-upload",
     "description": "PHP file upload — verify extension, MIME type, and size validation",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "hardcoded-ip-bind-all",
-    "pattern": "(?:bind|listen|host)\\s*[=:(]\\s*['\"]0\\.0\\.0\\.0['\"]",
+    "pattern": "(?:(?:bind|listen|host)\\s*[=:(]\\s*['\"]0\\.0\\.0\\.0['\"])|ListenAndServe\\s*\\(\\s*['\\\"]0\\.0\\.0\\.0",
     "cwe": "CWE-200",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
     "description": "Binding to 0.0.0.0 — service exposed on all network interfaces",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby"
+    ]
   },
   {
     "id": "hardcoded-ip-private",
@@ -645,40 +852,61 @@
     "severity": "low",
     "category": "misconfiguration",
     "description": "Hardcoded private IP address — use configuration/environment variables",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-cookie-no-httponly",
-    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*(?!httponly|httpOnly|http_only)",
+    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\((?:(?:(?![Hh]ttp[-_]?[Oo]nly)[^)])*\\)|[^)]*[Hh]ttp[-_]?[Oo]nly\\s*[=:]\\s*(?:[Ff]alse|0)\\b)",
     "cwe": "CWE-1004",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
     "description": "Cookie set without httpOnly flag — accessible to JavaScript/XSS",
-    "language": ["javascript", "typescript", "python", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
   {
     "id": "insecure-cookie-no-secure",
-    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*secure\\s*[=:]\\s*false",
+    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*secure['\\\"]?\\s*(?:=>|[=:])\\s*(?:[Ff]alse|0)\\b",
     "cwe": "CWE-614",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
     "description": "Cookie with secure=false — transmitted over unencrypted HTTP",
-    "language": ["javascript", "typescript", "python", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
   {
     "id": "insecure-cookie-no-samesite",
-    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*sameSite\\s*[=:]\\s*['\"]none['\"]",
+    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*[Ss]ame[-_]?[Ss]ite['\\\"]?\\s*(?:=>|[=:])\\s*(?:None|null|['\\\"]none['\\\"])",
     "cwe": "CWE-1275",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
     "description": "Cookie with SameSite=None — vulnerable to CSRF",
-    "language": ["javascript", "typescript", "python", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
-
   {
     "id": "missing-rate-limit-auth",
     "pattern": "(?:app|router)\\s*\\.(?:post|put)\\s*\\(\\s*['\"](?:/login|/signin|/auth|/token|/register|/signup|/reset-password|/forgot-password)['\"]",
@@ -687,7 +915,10 @@
     "severity": "medium",
     "category": "auth",
     "description": "Authentication endpoint — verify rate limiting is applied",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "missing-rate-limit-api",
@@ -697,9 +928,10 @@
     "severity": "medium",
     "category": "auth",
     "description": "Python auth endpoint — verify rate limiting is applied",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "log-injection-node",
     "pattern": "(?:console\\.(?:log|info|warn|error|debug)|logger\\.(?:info|warn|error|debug))\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
@@ -708,7 +940,10 @@
     "severity": "medium",
     "category": "injection",
     "description": "User input in log statement — log injection/forging risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "log-injection-python",
@@ -718,9 +953,10 @@
     "severity": "medium",
     "category": "injection",
     "description": "User input in Python log statement — log injection/forging risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "integer-overflow-parseint-noradix",
     "pattern": "parseInt\\s*\\(\\s*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)[^,)]*\\)",
@@ -729,7 +965,10 @@
     "severity": "medium",
     "category": "input-validation",
     "description": "parseInt on user input without radix or bounds check — integer issues",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "integer-overflow-number-cast",
@@ -739,9 +978,11 @@
     "severity": "low",
     "category": "input-validation",
     "description": "Unchecked Number() cast on user input — NaN/Infinity risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "prototype-pollution-merge",
     "pattern": "(?:merge|extend|defaultsDeep|_.merge|lodash\\.merge)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
@@ -750,7 +991,10 @@
     "severity": "high",
     "category": "injection",
     "description": "Deep merge with user input — prototype pollution risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "prototype-pollution-bracket-assign",
@@ -760,20 +1004,23 @@
     "severity": "high",
     "category": "injection",
     "description": "Dynamic property assignment from user input — prototype pollution risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "regex-dos-python",
-    "pattern": "re\\.(?:match|search|findall|sub|split)\\s*\\(.*(?:request\\.|form\\[|args\\[|json\\[|input\\()",
+    "pattern": "re\\.(?:match|search|findall|sub|split|compile)\\s*\\(\\s*r?['\\\"][^'\\\"]*\\([^)]*[+*]\\)\\s*[+*]",
     "cwe": "CWE-1333",
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "dos",
     "description": "Python regex with user input — ReDoS risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "timing-attack-string-compare",
     "pattern": "(?:secret|token|password|api_key|apiKey|key|hash|signature|sig)\\s*(?:===?|!==?|==|!=)\\s*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
@@ -782,7 +1029,10 @@
     "severity": "medium",
     "category": "crypto",
     "description": "Direct string comparison for secret — use timing-safe comparison",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "timing-attack-python",
@@ -792,9 +1042,10 @@
     "severity": "medium",
     "category": "crypto",
     "description": "Direct string comparison for secret in Python — use hmac.compare_digest()",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "insecure-websocket-ws",
     "pattern": "['\"]ws://(?!localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)",
@@ -803,7 +1054,13 @@
     "severity": "medium",
     "category": "crypto",
     "description": "Unencrypted WebSocket (ws://) to non-local host — use wss://",
-    "language": ["javascript", "typescript", "python", "java", "go"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "insecure-websocket-no-origin",
@@ -813,9 +1070,11 @@
     "severity": "medium",
     "category": "misconfiguration",
     "description": "WebSocket server without origin verification — CSWSH risk",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "jwt-hs256-public-key",
     "pattern": "jwt\\.(?:verify|decode)\\s*\\([^)]*(?:publicKey|public_key|getPublicKey|PEM|RSA).*['\"]HS256['\"]",
@@ -824,7 +1083,11 @@
     "severity": "critical",
     "category": "auth",
     "description": "JWT HS256 with public key — algorithm confusion attack",
-    "language": ["javascript", "typescript", "python"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
   {
     "id": "jwt-no-expiry",
@@ -834,19 +1097,25 @@
     "severity": "medium",
     "category": "auth",
     "description": "JWT signed without expiry — tokens valid indefinitely",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "jwt-weak-secret",
-    "pattern": "jwt\\.(?:sign|verify)\\s*\\([^)]*['\"](?:secret|password|key|changeme|test|1234)['\"]",
+    "pattern": "jwt\\.(?:sign|verify|encode|decode)\\s*\\([^)]*['\\\"](?:secret|password|key|changeme|test|1234)['\\\"]",
     "cwe": "CWE-798",
     "owasp": "A02:2021",
     "severity": "critical",
     "category": "auth",
     "description": "JWT with weak/default secret — trivially forgeable tokens",
-    "language": ["javascript", "typescript", "python"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
-
   {
     "id": "xxe-documentbuilder-java",
     "pattern": "DocumentBuilderFactory\\.newInstance\\s*\\(\\)(?!.*setFeature.*disallow-doctype-decl)",
@@ -855,7 +1124,9 @@
     "severity": "high",
     "category": "xxe",
     "description": "Java DocumentBuilderFactory without XXE protection",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "xxe-xmlinputfactory-java",
@@ -865,17 +1136,21 @@
     "severity": "high",
     "category": "xxe",
     "description": "Java XMLInputFactory without external entity protection",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "xxe-lxml-python",
-    "pattern": "lxml\\.etree\\.(?:parse|fromstring|XMLParser)\\s*\\(.*resolve_entities\\s*=\\s*True",
+    "pattern": "(?:lxml\\.)?etree\\.(?:parse|fromstring|XMLParser)\\s*\\(.*resolve_entities\\s*=\\s*True",
     "cwe": "CWE-611",
     "owasp": "A05:2021",
     "severity": "high",
     "category": "xxe",
     "description": "lxml with resolve_entities enabled — XXE risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "xxe-libxml-php",
@@ -885,7 +1160,9 @@
     "severity": "high",
     "category": "xxe",
     "description": "PHP XML parsing with entity substitution enabled — XXE risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "xxe-php-load-entity",
@@ -895,7 +1172,9 @@
     "severity": "high",
     "category": "xxe",
     "description": "PHP external entity loading explicitly enabled — XXE risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "xxe-go-decoder",
@@ -905,9 +1184,10 @@
     "severity": "medium",
     "category": "xxe",
     "description": "Go XML decoder — verify external entity handling is disabled",
-    "language": ["go"]
+    "language": [
+      "go"
+    ]
   },
-
   {
     "id": "ssrf-cloud-metadata",
     "pattern": "(?:169\\.254\\.169\\.254|metadata\\.google\\.internal|metadata\\.azure\\.com|100\\.100\\.100\\.200)",
@@ -916,7 +1196,15 @@
     "severity": "critical",
     "category": "ssrf",
     "description": "Cloud metadata endpoint URL — SSRF to cloud credentials",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "ssrf-java-url",
@@ -926,7 +1214,9 @@
     "severity": "high",
     "category": "ssrf",
     "description": "Java URL from user input — SSRF risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "ssrf-go-http-get",
@@ -936,7 +1226,9 @@
     "severity": "high",
     "category": "ssrf",
     "description": "Go HTTP request with user input — SSRF risk",
-    "language": ["go"]
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "ssrf-ruby-open-uri",
@@ -946,7 +1238,9 @@
     "severity": "high",
     "category": "ssrf",
     "description": "Ruby HTTP request with user input — SSRF risk",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "ssrf-php-curl",
@@ -956,9 +1250,10 @@
     "severity": "high",
     "category": "ssrf",
     "description": "PHP cURL with user-controlled URL — SSRF risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "session-fixation",
     "pattern": "(?:session_id|session\\[.session_id.\\])\\s*=\\s*(?:req\\.|request\\.|params\\.|query\\.|\\$_GET|\\$_POST|\\$_REQUEST)",
@@ -967,7 +1262,12 @@
     "severity": "high",
     "category": "auth",
     "description": "Session ID set from user input — session fixation vulnerability",
-    "language": ["php", "python", "javascript", "typescript"]
+    "language": [
+      "php",
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "session-no-regenerate",
@@ -977,18 +1277,24 @@
     "severity": "medium",
     "category": "auth",
     "description": "Authentication without session regeneration — fixation risk",
-    "language": ["javascript", "typescript", "python", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-random-go",
-    "pattern": "math/rand",
+    "pattern": "(?:math/rand)|\\brand\\.(?:Intn|Int31|Int63|Float32|Float64|Perm|Shuffle|Seed)\\s*\\(",
     "cwe": "CWE-338",
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
     "description": "Go math/rand is not cryptographically secure — use crypto/rand",
-    "language": ["go"]
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "insecure-random-java",
@@ -998,7 +1304,9 @@
     "severity": "medium",
     "category": "crypto",
     "description": "java.util.Random is not cryptographically secure — use SecureRandom",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "insecure-random-ruby",
@@ -1008,7 +1316,9 @@
     "severity": "medium",
     "category": "crypto",
     "description": "Ruby rand/Random not cryptographically secure — use SecureRandom",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "insecure-random-php",
@@ -1018,9 +1328,10 @@
     "severity": "medium",
     "category": "crypto",
     "description": "PHP rand/mt_rand not cryptographically secure — use random_bytes/random_int",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "sql-injection-go-sprintf",
     "pattern": "fmt\\.Sprintf\\s*\\(\\s*['\"]\\s*(?:SELECT|INSERT|UPDATE|DELETE|DROP)",
@@ -1029,7 +1340,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Go SQL query via fmt.Sprintf — use parameterized queries",
-    "language": ["go"]
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "sql-injection-go-concat",
@@ -1039,7 +1352,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Go SQL query via string concatenation — use parameterized queries",
-    "language": ["go"]
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "sql-injection-java-concat",
@@ -1049,7 +1364,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Java SQL via string concatenation — use PreparedStatement with parameters",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "sql-injection-java-request",
@@ -1059,7 +1376,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Java SQL query with HTTP request input — injection risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "sql-injection-php-concat",
@@ -1069,17 +1388,21 @@
     "severity": "critical",
     "category": "injection",
     "description": "PHP SQL query with user input — use prepared statements",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "sql-injection-php-interpolation",
-    "pattern": "(?:mysql_query|mysqli_query|pg_query|\\$(?:pdo|db|conn)->query)\\s*\\(\\s*\".*\\$",
+    "pattern": "(?:mysql_query|mysqli_query|pg_query|\\$(?:pdo|db|conn)->query)\\s*\\([^)]*\\\"[^\\\"]*\\$",
     "cwe": "CWE-89",
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
     "description": "PHP SQL with variable interpolation — use prepared statements",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "sql-injection-ruby-interpolation",
@@ -1089,9 +1412,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "Ruby SQL with string interpolation — use parameterized queries",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
-
   {
     "id": "path-traversal-go",
     "pattern": "(?:os\\.(?:Open|ReadFile|Create|WriteFile)|ioutil\\.(?:ReadFile|WriteFile)|filepath\\.Join)\\s*\\(.*(?:r\\.(?:URL|Form|PostForm)|r\\.Header\\.Get|mux\\.Vars|c\\.(?:Param|Query))",
@@ -1100,7 +1424,9 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "Go file operation with user input — path traversal risk",
-    "language": ["go"]
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "path-traversal-java",
@@ -1110,7 +1436,9 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "Java file operation with user input — path traversal risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "path-traversal-ruby",
@@ -1120,7 +1448,9 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "Ruby file operation with user input — path traversal risk",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "path-traversal-php",
@@ -1130,9 +1460,10 @@
     "severity": "critical",
     "category": "path-traversal",
     "description": "PHP file operation with user input — path traversal / file inclusion risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "deserialization-java-objectinputstream",
     "pattern": "(?:ObjectInputStream|readObject|readUnshared)\\s*\\(",
@@ -1141,7 +1472,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "Java ObjectInputStream — untrusted deserialization / RCE risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "deserialization-java-xmldecoder",
@@ -1151,7 +1484,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "Java XMLDecoder — arbitrary code execution via deserialization",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "deserialization-java-xstream",
@@ -1161,7 +1496,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "XStream without type restrictions — deserialization RCE risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "deserialization-dotnet-binaryformatter",
@@ -1171,7 +1508,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": ".NET BinaryFormatter — insecure deserializer, use JsonSerializer",
-    "language": ["csharp"]
+    "language": [
+      "csharp"
+    ]
   },
   {
     "id": "deserialization-dotnet-netdatacontract",
@@ -1181,7 +1520,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": ".NET NetDataContractSerializer — insecure deserializer",
-    "language": ["csharp"]
+    "language": [
+      "csharp"
+    ]
   },
   {
     "id": "deserialization-dotnet-losformatter",
@@ -1191,7 +1532,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": ".NET LosFormatter — insecure deserializer",
-    "language": ["csharp"]
+    "language": [
+      "csharp"
+    ]
   },
   {
     "id": "deserialization-dotnet-objectstateformatter",
@@ -1201,18 +1544,27 @@
     "severity": "critical",
     "category": "deserialization",
     "description": ".NET ObjectStateFormatter — insecure deserializer",
-    "language": ["csharp"]
+    "language": [
+      "csharp"
+    ]
   },
-
   {
     "id": "weak-crypto-des",
-    "pattern": "(?:DES|DESede|TripleDES|3DES|Blowfish)(?:\\.(?:new|encrypt|decrypt)|\\s*\\()",
+    "pattern": "(?:(?:DES|DESede|TripleDES|3DES|Blowfish)(?:\\.(?:new|encrypt|decrypt)|\\s*\\())|des\\.(?:NewCipher|NewTripleDESCipher)\\s*\\(",
     "cwe": "CWE-327",
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
     "description": "Weak/deprecated cipher (DES/3DES/Blowfish) — use AES-256",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "weak-crypto-ecb-mode",
@@ -1222,19 +1574,26 @@
     "severity": "high",
     "category": "crypto",
     "description": "ECB cipher mode — does not provide semantic security, use GCM or CBC",
-    "language": ["python", "java", "go"]
+    "language": [
+      "python",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "weak-crypto-rsa-small-key",
-    "pattern": "(?:RSA\\.generate|KeyPairGenerator.*RSA)\\s*\\(\\s*(?:512|768|1024)\\s*\\)",
+    "pattern": "(?:(?:RSA\\.generate|KeyPairGenerator.*RSA)\\s*\\(\\s*(?:512|768|1024)\\s*\\))|rsa\\.GenerateKey\\s*\\([^,]+,\\s*(?:512|768|1024)\\s*\\)|initialize\\s*\\(\\s*(?:512|768|1024)\\s*\\)",
     "cwe": "CWE-326",
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
     "description": "RSA key size too small — use at least 2048 bits",
-    "language": ["python", "java", "go"]
+    "language": [
+      "python",
+      "java",
+      "go"
+    ]
   },
-
   {
     "id": "command-injection-go",
     "pattern": "exec\\.Command\\s*\\(\\s*['\"](?:bash|sh|cmd|powershell)['\"]\\s*,\\s*['\"](?:-c|-Command)['\"]\\s*,.*(?:r\\.(?:URL|Form|PostForm)|r\\.Header\\.Get|mux\\.Vars|c\\.(?:Param|Query))",
@@ -1243,7 +1602,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Go shell command with user input — command injection risk",
-    "language": ["go"]
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "command-injection-java-runtime",
@@ -1253,7 +1614,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Java Runtime.exec with user input — command injection risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "command-injection-java-processbuilder",
@@ -1263,7 +1626,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Java ProcessBuilder with user input — command injection risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "command-injection-ruby",
@@ -1273,7 +1638,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Ruby command execution with user input — injection risk",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "command-injection-php",
@@ -1283,9 +1650,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "PHP command execution with user input — injection risk",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "xss-php-echo",
     "pattern": "(?:echo|print)\\s+\\$_(?:GET|POST|REQUEST|COOKIE)",
@@ -1294,7 +1662,9 @@
     "severity": "high",
     "category": "xss",
     "description": "PHP echo/print with user input — XSS vulnerability",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "xss-java-response-write",
@@ -1304,7 +1674,9 @@
     "severity": "high",
     "category": "xss",
     "description": "Java response writer with user input — XSS risk",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "xss-ruby-raw-html",
@@ -1314,9 +1686,10 @@
     "severity": "high",
     "category": "xss",
     "description": "Rails html_safe/raw with user input — XSS risk",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
-
   {
     "id": "ssrf-internal-network",
     "pattern": "(?:fetch|requests?\\.get|axios\\.get|http\\.get|urllib).*(?:127\\.0\\.0\\.1|localhost|0\\.0\\.0\\.0|\\[::1\\]|10\\.|172\\.(?:1[6-9]|2\\d|3[01])|192\\.168)",
@@ -1325,20 +1698,29 @@
     "severity": "medium",
     "category": "ssrf",
     "description": "HTTP request to internal/loopback address — potential SSRF",
-    "language": ["python", "javascript", "typescript", "java", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go"
+    ]
   },
-
   {
     "id": "header-injection",
-    "pattern": "(?:setHeader|set_header|addHeader|add_header|writeHead|response\\.headers)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
+    "pattern": "(?:setHeader|set_header|addHeader|add_header|writeHead|(?:response|resp)\\.headers\\s*(?:\\(|\\[)).*(?:req\\.|request\\.|params\\.|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)",
     "cwe": "CWE-113",
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "injection",
     "description": "HTTP response header from user input — header injection / response splitting",
-    "language": ["javascript", "typescript", "python", "java"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java"
+    ]
   },
-
   {
     "id": "xpath-injection",
     "pattern": "(?:xpath|XPathFactory|evaluate)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\$_GET|\\$_POST)",
@@ -1347,9 +1729,14 @@
     "severity": "high",
     "category": "injection",
     "description": "XPath query with user input — injection risk",
-    "language": ["javascript", "typescript", "python", "java", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "php"
+    ]
   },
-
   {
     "id": "unsafe-reflection-java",
     "pattern": "Class\\.forName\\s*\\(.*(?:request\\.getParameter|getQueryString|getHeader)",
@@ -1358,9 +1745,10 @@
     "severity": "high",
     "category": "injection",
     "description": "Java reflection with user input — unsafe class loading",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
-
   {
     "id": "open-redirect-flask",
     "pattern": "redirect\\s*\\(\\s*(?:request\\.args|request\\.form|request\\.values|request\\.json)",
@@ -1369,7 +1757,9 @@
     "severity": "medium",
     "category": "redirect",
     "description": "Flask redirect with user input — open redirect vulnerability",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "open-redirect-php",
@@ -1379,31 +1769,39 @@
     "severity": "medium",
     "category": "redirect",
     "description": "PHP redirect with user input — open redirect vulnerability",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "http-response-splitting",
-    "pattern": "(?:setHeader|addHeader|header)\\s*\\(.*[\\\\]r[\\\\]n|(?:\\\\r\\\\n|%0d%0a|%0D%0A)",
+    "pattern": "(?:setHeader|set_header|writeHead|(?:response|resp)\\.headers\\s*(?:\\(|\\[)).*(?:req\\.|request\\.|params\\.|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)",
     "cwe": "CWE-113",
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
     "description": "CRLF in HTTP header — response splitting attack",
-    "language": ["javascript", "typescript", "python", "java", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-crypto-no-iv",
-    "pattern": "(?:AES\\.new|Cipher\\.getInstance)\\s*\\([^)]*(?:ECB|$)\\)",
+    "pattern": "(?:AES\\.new|Cipher\\.getInstance)\\s*\\((?:(?![Ii][Vv]\\b|nonce)[^)])*MODE_(?:CBC|CFB|OFB)(?:(?![Ii][Vv]\\b|nonce)[^)])*\\)",
     "cwe": "CWE-329",
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
     "description": "Cipher without IV or using ECB mode — predictable encryption",
-    "language": ["python", "java"]
+    "language": [
+      "python",
+      "java"
+    ]
   },
-
   {
     "id": "hardcoded-connection-string",
     "pattern": "(?:mongodb|mysql|postgres|postgresql|redis|amqp|mssql)://[^/\\s]+:[^@\\s]+@",
@@ -1412,9 +1810,16 @@
     "severity": "high",
     "category": "credentials",
     "description": "Hardcoded database connection string with credentials",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "express-helmet-missing",
     "pattern": "express\\s*\\(\\s*\\)(?!.*helmet)",
@@ -1423,9 +1828,11 @@
     "severity": "low",
     "category": "misconfiguration",
     "description": "Express app without helmet — missing security headers",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "eval-php-user-input",
     "pattern": "\\beval\\s*\\(.*\\$_(?:GET|POST|REQUEST|COOKIE|SERVER)",
@@ -1434,7 +1841,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "PHP eval with user input — remote code execution",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "preg-replace-eval-php",
@@ -1444,9 +1853,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "PHP preg_replace with /e modifier — code execution",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "python-exec-user-input",
     "pattern": "exec\\s*\\(.*(?:request\\.|form\\[|args\\[|json\\[|input\\()",
@@ -1455,7 +1865,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "Python exec() with user input — arbitrary code execution",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "python-compile-user-input",
@@ -1465,9 +1877,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "Python compile() with user input — code execution risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "insecure-deserialization-jsonpickle",
     "pattern": "jsonpickle\\.(?:decode|loads)\\s*\\(",
@@ -1476,7 +1889,9 @@
     "severity": "critical",
     "category": "deserialization",
     "description": "jsonpickle deserialization — arbitrary code execution risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "insecure-deserialization-shelve",
@@ -1486,31 +1901,38 @@
     "severity": "high",
     "category": "deserialization",
     "description": "Python shelve uses pickle internally — code execution risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "cors-reflect-origin",
-    "pattern": "(?:Access-Control-Allow-Origin|origin)\\s*[=:]\\s*(?:req\\.headers?\\.origin|request\\.headers?\\.origin|origin)",
+    "pattern": "(?:Access-Control-Allow-Origin|origin)['\\\"\\]\\s]*[=:]\\s*(?:req\\.headers?\\.origin|request\\.headers?\\.origin|origin|request\\.headers\\.get\\(['\\\"]Origin)",
     "cwe": "CWE-346",
     "owasp": "A05:2021",
     "severity": "high",
     "category": "misconfiguration",
     "description": "CORS origin reflected from request — effectively wildcard with credentials",
-    "language": ["javascript", "typescript", "python"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
-
   {
     "id": "information-exposure-stacktrace",
-    "pattern": "(?:traceback\\.format_exc|traceback\\.print_exc|e\\.(?:stack|message)|err\\.(?:stack|message)).*(?:res\\.(?:send|json|write)|response\\.(?:write|send))",
+    "pattern": "(?:traceback\\.format_exc|traceback\\.print_exc|e\\.(?:stack|message)|err\\.(?:stack|message)).*(?:res\\.(?:send|json|write)|return|render)|return\\s+.*traceback\\.(?:format_exc|print_exc)|res\\.(?:send|json|write)\\s*\\([^)]*\\b(?:err|e|error)\\.(?:stack|message)",
     "cwe": "CWE-209",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
     "description": "Stack trace sent in response — information exposure",
-    "language": ["javascript", "typescript", "python"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
-
   {
     "id": "php-file-inclusion",
     "pattern": "(?:include|require|include_once|require_once)\\s*\\(\\s*\\$_(?:GET|POST|REQUEST|COOKIE)",
@@ -1519,9 +1941,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "PHP file inclusion with user input — local/remote file inclusion",
-    "language": ["php"]
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "ruby-erb-render-user",
     "pattern": "ERB\\.new\\s*\\(.*(?:params\\[|request\\.|env\\[)",
@@ -1530,20 +1953,28 @@
     "severity": "critical",
     "category": "injection",
     "description": "Ruby ERB template from user input — SSTI risk",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
-
   {
     "id": "weak-password-hash-md5",
-    "pattern": "(?:password|passwd|pwd).*(?:md5|MD5|sha1|SHA1)\\s*\\(",
+    "pattern": "(?:(?:password|passwd|pwd).*(?:md5|MD5|sha1|SHA1)\\s*\\()|(?:md5|sha1)\\.Sum\\s*\\([^)]*[Pp]ass(?:word|wd)?|hashlib\\.(?:md5|sha1)\\s*\\([^)]*[Pp]ass(?:word|wd)?|createHash\\s*\\(\\s*['\\\"](?:md5|sha1)['\\\"]\\s*\\)[^;\\n]*[Pp]ass(?:word|wd)?|Digest::(?:MD5|SHA1)\\.\\w+\\s*\\([^)]*[Pp]ass(?:word|wd)?|\\b(?:md5|sha1)\\s*\\(\\s*\\$?[Pp]ass(?:word|wd)?",
     "cwe": "CWE-916",
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
     "description": "Password hashed with MD5/SHA1 — use bcrypt, scrypt, or argon2",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-http-url",
     "pattern": "['\"]http://(?!localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0|\\[::1\\])\\S+['\"]",
@@ -1552,9 +1983,16 @@
     "severity": "low",
     "category": "crypto",
     "description": "Plain HTTP URL to external host — use HTTPS",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "xml-bomb-billion-laughs",
     "pattern": "<!ENTITY\\s+\\w+\\s+['\"]",
@@ -1563,9 +2001,16 @@
     "severity": "high",
     "category": "dos",
     "description": "XML entity definition — potential billion laughs / XML bomb",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "electron-nodeintegration",
     "pattern": "nodeIntegration\\s*:\\s*true",
@@ -1574,7 +2019,10 @@
     "severity": "high",
     "category": "misconfiguration",
     "description": "Electron nodeIntegration enabled — XSS leads to RCE",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "electron-contextisolation-disabled",
@@ -1584,9 +2032,11 @@
     "severity": "high",
     "category": "misconfiguration",
     "description": "Electron contextIsolation disabled — preload script attacks",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "django-raw-sql",
     "pattern": "\\.(?:raw|extra)\\s*\\(.*(?:request\\.|form\\[|GET\\[|POST\\[|%s|format|\\{)",
@@ -1595,9 +2045,10 @@
     "severity": "high",
     "category": "injection",
     "description": "Django raw SQL with user input — SQL injection risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "flask-send-file-user-path",
     "pattern": "send_(?:file|from_directory)\\s*\\(.*(?:request\\.args|request\\.form|request\\.json)",
@@ -1606,6 +2057,8 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "Flask send_file with user input — path traversal risk",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   }
 ]
