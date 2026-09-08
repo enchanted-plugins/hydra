@@ -1,0 +1,14 @@
+{
+  "_comment": "Idiomatic, genuinely vulnerable csharp - one proving case per rule that claims this language. A rule tagged for it with no entry here, or an entry it fails to match, fails test-corpus-language-fidelity.py. Safe lookalikes pin the false-positive rate at zero.",
+  "language": "csharp",
+  "positive": {
+    "deserialization-dotnet-binaryformatter": "var f = new BinaryFormatter();",
+    "deserialization-dotnet-losformatter": "var f = new LosFormatter();",
+    "deserialization-dotnet-netdatacontract": "var s = new NetDataContractSerializer();",
+    "deserialization-dotnet-objectstateformatter": "var f = new ObjectStateFormatter();"
+  },
+  "taint_bound": {},
+  "negative": [
+    "var s = new DataContractJsonSerializer(typeof(T));"
+  ]
+}

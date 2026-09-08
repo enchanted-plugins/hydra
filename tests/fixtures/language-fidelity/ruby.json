@@ -1,0 +1,36 @@
+{
+  "_comment": "Idiomatic, genuinely vulnerable ruby - one proving case per rule that claims this language. A rule tagged for it with no entry here, or an entry it fails to match, fails test-corpus-language-fidelity.py. Safe lookalikes pin the false-positive rate at zero.",
+  "language": "ruby",
+  "positive": {
+    "command-injection-eval": "eval(params[:expr]) # user input",
+    "command-injection-ruby": "system(\"ping \" + params[:host])",
+    "cors-wildcard": "headers[\"Access-Control-Allow-Origin\"] = \"*\"",
+    "deserialization-marshal": "obj = Marshal.load(payload)",
+    "hardcoded-connection-string": "DB = \"postgres://admin:s3cretpw@db.internal:5432/app\"",
+    "hardcoded-ip-bind-all": "host = \"0.0.0.0\"",
+    "hardcoded-ip-private": "REDIS = \"10.0.0.5\"",
+    "hardcoded-password-literal": "password = \"sup3rs3cret\"",
+    "hardcoded-secret-key": "secret_key = \"abc123def456ghi789\"",
+    "insecure-http-url": "api = \"http://api.partner.com/v1/data\"",
+    "insecure-random-ruby": "token = rand(1000000)",
+    "mass-assignment-rails": "User.create(params[:user])",
+    "open-redirect": "redirect(params[:next])",
+    "path-traversal-ruby": "File.read(params[:file])",
+    "ruby-erb-render-user": "ERB.new(params[:tpl]).result",
+    "sql-injection-concat": "q = \"SELECT * FROM users WHERE id = \" + params[:id]",
+    "sql-injection-ruby-interpolation": "execute(\"SELECT * FROM users WHERE id = #{id}\")",
+    "ssrf-cloud-metadata": "r = URI.open(\"http://169.254.169.254/latest/meta-data/\")",
+    "ssrf-ruby-open-uri": "r = URI.open(params[:url])",
+    "weak-crypto-des": "c = DES.encrypt(data, key)",
+    "weak-password-hash-md5": "stored = Digest::MD5.hexdigest(password)",
+    "xml-bomb-billion-laughs": "<!ENTITY lol \"lol\">",
+    "xss-ruby-raw-html": "raw(params[:html])"
+  },
+  "taint_bound": {},
+  "negative": [
+    "stored = BCrypt::Password.create(password)",
+    "User.where(\"id = ?\", params[:id])",
+    "token = SecureRandom.hex(32)",
+    "api = \"https://api.partner.com/v1/data\""
+  ]
+}

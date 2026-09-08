@@ -1,7 +1,7 @@
 [
   {
     "id": "sql-injection-concat",
-    "pattern": "(?:SELECT|INSERT|UPDATE|DELETE|DROP|UNION)\\s.*\\+\\s*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)|(?:execute|executemany)\\s*\\(\\s*['\\\"][^'\\\"]*(?:SELECT|INSERT|UPDATE|DELETE)[^'\\\"]*['\\\"]\\s*\\+",
+    "pattern": "(?:SELECT|INSERT|UPDATE|DELETE|DROP|UNION)\\s.*\\+\\s*(?:req\\.|request\\.|params\\.|params\\[|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)|(?:execute|executemany)\\s*\\(\\s*['\\\"][^'\\\"]*(?:SELECT|INSERT|UPDATE|DELETE)[^'\\\"]*['\\\"]\\s*\\+",
     "cwe": "CWE-89",
     "owasp": "A03:2021",
     "severity": "critical",
@@ -284,7 +284,7 @@
   },
   {
     "id": "cors-wildcard",
-    "pattern": "(?:Access-Control-Allow-Origin|cors).*['\"]\\*['\"]",
+    "pattern": "(?:Access-Control-Allow-Origin|cors).*(?:['\\\"]\\*['\\\"]|:\\s*\\*)",
     "cwe": "CWE-346",
     "owasp": "A05:2021",
     "severity": "medium",
@@ -374,7 +374,7 @@
   },
   {
     "id": "open-redirect",
-    "pattern": "(?:redirect|location\\.href|window\\.location)\\s*(?:=|\\().*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
+    "pattern": "(?:redirect|location\\.href|window\\.location)\\s*(?:=|\\().*(?:req\\.|request\\.|params\\.|params\\[|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)",
     "cwe": "CWE-601",
     "owasp": "A01:2021",
     "severity": "medium",
@@ -879,7 +879,7 @@
   },
   {
     "id": "insecure-cookie-no-secure",
-    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*secure\\s*[=:]\\s*(?:[Ff]alse|0)\\b",
+    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*secure['\\\"]?\\s*(?:=>|[=:])\\s*(?:[Ff]alse|0)\\b",
     "cwe": "CWE-614",
     "owasp": "A05:2021",
     "severity": "medium",
@@ -894,7 +894,7 @@
   },
   {
     "id": "insecure-cookie-no-samesite",
-    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*[Ss]ame[-_]?[Ss]ite\\s*[=:]\\s*(?:None|null|['\\\"]none['\\\"])",
+    "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*[Ss]ame[-_]?[Ss]ite['\\\"]?\\s*(?:=>|[=:])\\s*(?:None|null|['\\\"]none['\\\"])",
     "cwe": "CWE-1275",
     "owasp": "A05:2021",
     "severity": "medium",
@@ -1394,7 +1394,7 @@
   },
   {
     "id": "sql-injection-php-interpolation",
-    "pattern": "(?:mysql_query|mysqli_query|pg_query|\\$(?:pdo|db|conn)->query)\\s*\\(\\s*\".*\\$",
+    "pattern": "(?:mysql_query|mysqli_query|pg_query|\\$(?:pdo|db|conn)->query)\\s*\\([^)]*\\\"[^\\\"]*\\$",
     "cwe": "CWE-89",
     "owasp": "A03:2021",
     "severity": "critical",
@@ -1582,7 +1582,7 @@
   },
   {
     "id": "weak-crypto-rsa-small-key",
-    "pattern": "(?:(?:RSA\\.generate|KeyPairGenerator.*RSA)\\s*\\(\\s*(?:512|768|1024)\\s*\\))|rsa\\.GenerateKey\\s*\\([^,]+,\\s*(?:512|768|1024)\\s*\\)",
+    "pattern": "(?:(?:RSA\\.generate|KeyPairGenerator.*RSA)\\s*\\(\\s*(?:512|768|1024)\\s*\\))|rsa\\.GenerateKey\\s*\\([^,]+,\\s*(?:512|768|1024)\\s*\\)|initialize\\s*\\(\\s*(?:512|768|1024)\\s*\\)",
     "cwe": "CWE-326",
     "owasp": "A02:2021",
     "severity": "high",
@@ -1708,7 +1708,7 @@
   },
   {
     "id": "header-injection",
-    "pattern": "(?:setHeader|set_header|addHeader|add_header|writeHead|(?:response|resp)\\.headers\\s*(?:\\(|\\[)).*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
+    "pattern": "(?:setHeader|set_header|addHeader|add_header|writeHead|(?:response|resp)\\.headers\\s*(?:\\(|\\[)).*(?:req\\.|request\\.|params\\.|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)",
     "cwe": "CWE-113",
     "owasp": "A03:2021",
     "severity": "medium",
@@ -1775,7 +1775,7 @@
   },
   {
     "id": "http-response-splitting",
-    "pattern": "(?:setHeader|set_header|writeHead|(?:response|resp)\\.headers\\s*(?:\\(|\\[)).*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
+    "pattern": "(?:setHeader|set_header|writeHead|(?:response|resp)\\.headers\\s*(?:\\(|\\[)).*(?:req\\.|request\\.|params\\.|query\\.|body\\.|\\$_(?:GET|POST|REQUEST)|input|user)",
     "cwe": "CWE-113",
     "owasp": "A03:2021",
     "severity": "high",
@@ -1959,7 +1959,7 @@
   },
   {
     "id": "weak-password-hash-md5",
-    "pattern": "(?:(?:password|passwd|pwd).*(?:md5|MD5|sha1|SHA1)\\s*\\()|(?:md5|sha1)\\.Sum\\s*\\([^)]*[Pp]ass(?:word|wd)?|hashlib\\.(?:md5|sha1)\\s*\\([^)]*[Pp]ass(?:word|wd)?|createHash\\s*\\(\\s*['\\\"](?:md5|sha1)['\\\"]\\s*\\)[^;\\n]*[Pp]ass(?:word|wd)?",
+    "pattern": "(?:(?:password|passwd|pwd).*(?:md5|MD5|sha1|SHA1)\\s*\\()|(?:md5|sha1)\\.Sum\\s*\\([^)]*[Pp]ass(?:word|wd)?|hashlib\\.(?:md5|sha1)\\s*\\([^)]*[Pp]ass(?:word|wd)?|createHash\\s*\\(\\s*['\\\"](?:md5|sha1)['\\\"]\\s*\\)[^;\\n]*[Pp]ass(?:word|wd)?|Digest::(?:MD5|SHA1)\\.\\w+\\s*\\([^)]*[Pp]ass(?:word|wd)?|\\b(?:md5|sha1)\\s*\\(\\s*\\$?[Pp]ass(?:word|wd)?",
     "cwe": "CWE-916",
     "owasp": "A02:2021",
     "severity": "high",
