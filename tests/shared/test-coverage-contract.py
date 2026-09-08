@@ -85,11 +85,24 @@ class TestFalseClean(unittest.TestCase):
             self.assertIn(shape, unsupported)
 
     def test_findings_still_reported(self):
-        """The repair must not suppress real detections."""
+        """The repair must not suppress real detections.
+
+        Uses a real call site (md5.Sum(...)), not a bare `md5.New` reference:
+        the rule deliberately requires a call form so that merely importing or
+        referencing the symbol does not raise a finding.
+        """
         p = write(self.tmp, "a.go",
-                  'package main\nimport "crypto/md5"\nvar _ = md5.New\n')
+                  'package main\n\nfunc h(data []byte) {\n'
+                  '\tsum := md5.Sum(data)\n\t_ = sum\n}\n')
         r = scan(p)
         self.assertGreater(len(r["findings"]), 0)
+
+    def test_bare_symbol_reference_does_not_fire(self):
+        """A reference without a call must NOT be reported (precision)."""
+        p = write(self.tmp, "a.go",
+                  'package main\n\nimport "crypto/md5"\n\nvar _ = md5.New\n')
+        r = scan(p)
+        self.assertEqual(r["findings"], [])
 
     def test_legacy_mode_is_still_a_bare_array(self):
         """Existing consumers keep working via --findings-only."""
