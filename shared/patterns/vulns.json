@@ -7,7 +7,14 @@
     "severity": "critical",
     "category": "injection",
     "description": "SQL query built via string concatenation with user input",
-    "language": ["javascript", "typescript", "python", "java", "ruby", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "sql-injection-fstring",
@@ -17,7 +24,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "SQL query built via f-string interpolation",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "sql-injection-format",
@@ -27,7 +36,9 @@
     "severity": "high",
     "category": "injection",
     "description": "SQL query built via .format() with potential user input",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "sql-injection-percent",
@@ -37,7 +48,9 @@
     "severity": "high",
     "category": "injection",
     "description": "SQL query built via % string formatting",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "sql-injection-template-literal",
@@ -47,7 +60,10 @@
     "severity": "critical",
     "category": "injection",
     "description": "SQL query built via template literal interpolation",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-innerhtml",
@@ -56,8 +72,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "xss",
-    "description": "Direct innerHTML assignment — potential XSS if user-controlled",
-    "language": ["javascript", "typescript"]
+    "description": "Direct innerHTML assignment \u2014 potential XSS if user-controlled",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-document-write",
@@ -67,7 +86,10 @@
     "severity": "high",
     "category": "xss",
     "description": "document.write with potential user-controlled content",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-dangerously-set-html",
@@ -76,8 +98,11 @@
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "xss",
-    "description": "React dangerouslySetInnerHTML — ensure input is sanitized",
-    "language": ["javascript", "typescript"]
+    "description": "React dangerouslySetInnerHTML \u2014 ensure input is sanitized",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xss-v-html",
@@ -86,8 +111,11 @@
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "xss",
-    "description": "Vue v-html directive — potential XSS",
-    "language": ["javascript", "typescript"]
+    "description": "Vue v-html directive \u2014 potential XSS",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "path-traversal-join",
@@ -97,7 +125,11 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "File path constructed with user-controlled input",
-    "language": ["python", "javascript", "typescript"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "path-traversal-open",
@@ -107,7 +139,11 @@
     "severity": "high",
     "category": "path-traversal",
     "description": "File read with user-controlled path",
-    "language": ["python", "javascript", "typescript"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "command-injection-subprocess-shell",
@@ -116,8 +152,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "subprocess with shell=True — command injection risk",
-    "language": ["python"]
+    "description": "subprocess with shell=True \u2014 command injection risk",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "command-injection-os-system",
@@ -127,7 +165,9 @@
     "severity": "critical",
     "category": "injection",
     "description": "os.system with user-controlled input",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "command-injection-exec",
@@ -136,8 +176,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "exec() with user-controlled input — command injection",
-    "language": ["javascript", "typescript"]
+    "description": "exec() with user-controlled input \u2014 command injection",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "command-injection-eval",
@@ -146,8 +189,14 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "eval() with user-controlled input — code injection",
-    "language": ["javascript", "typescript", "python", "ruby", "php"]
+    "description": "eval() with user-controlled input \u2014 code injection",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "deserialization-pickle",
@@ -156,8 +205,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "Python pickle deserialization — arbitrary code execution risk",
-    "language": ["python"]
+    "description": "Python pickle deserialization \u2014 arbitrary code execution risk",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "deserialization-yaml-unsafe",
@@ -166,8 +217,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "YAML load without SafeLoader — arbitrary code execution risk",
-    "language": ["python"]
+    "description": "YAML load without SafeLoader \u2014 arbitrary code execution risk",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "deserialization-marshal",
@@ -176,8 +229,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "Ruby Marshal deserialization — arbitrary code execution risk",
-    "language": ["ruby"]
+    "description": "Ruby Marshal deserialization \u2014 arbitrary code execution risk",
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "deserialization-unserialize",
@@ -186,28 +241,46 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "PHP unserialize — object injection risk",
-    "language": ["php"]
+    "description": "PHP unserialize \u2014 object injection risk",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "hardcoded-password-literal",
-    "pattern": "(?:password|passwd|pwd)\\s*=\\s*['\"][^'\"]{4,}['\"]",
+    "pattern": "(?:password|passwd|pwd)\\s*:?=\\s*['\"][^'\"]{4,}['\"]",
     "cwe": "CWE-798",
     "owasp": "A07:2021",
     "severity": "high",
     "category": "credentials",
     "description": "Hardcoded password literal",
-    "language": ["python", "javascript", "typescript", "java", "ruby", "php", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "ruby",
+      "php",
+      "go"
+    ]
   },
   {
     "id": "hardcoded-secret-key",
-    "pattern": "(?:secret[-_]?key|SECRET[-_]?KEY)\\s*=\\s*['\"][^'\"]{8,}['\"]",
+    "pattern": "(?:[Ss]ecret[-_]?[Kk]ey|SECRET[-_]?KEY|[Aa]pi[-_]?[Ss]ecret)\\s*:?=\\s*['\"][^'\"]{8,}['\"]",
     "cwe": "CWE-798",
     "owasp": "A07:2021",
     "severity": "high",
     "category": "credentials",
     "description": "Hardcoded secret key literal",
-    "language": ["python", "javascript", "typescript", "java", "ruby", "php", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "ruby",
+      "php",
+      "go"
+    ]
   },
   {
     "id": "cors-wildcard",
@@ -216,8 +289,16 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "CORS wildcard origin — allows any domain to make cross-origin requests",
-    "language": ["javascript", "typescript", "python", "java", "ruby", "php", "go"]
+    "description": "CORS wildcard origin \u2014 allows any domain to make cross-origin requests",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "ruby",
+      "php",
+      "go"
+    ]
   },
   {
     "id": "cors-credentials-wildcard",
@@ -226,8 +307,13 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "misconfiguration",
-    "description": "CORS with credentials and wildcard origin — severe misconfiguration",
-    "language": ["javascript", "typescript", "python", "java"]
+    "description": "CORS with credentials and wildcard origin \u2014 severe misconfiguration",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java"
+    ]
   },
   {
     "id": "insecure-random-math",
@@ -236,8 +322,11 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "Math.random() is not cryptographically secure — use crypto.randomBytes()",
-    "language": ["javascript", "typescript"]
+    "description": "Math.random() is not cryptographically secure \u2014 use crypto.randomBytes()",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "insecure-random-python",
@@ -246,28 +335,42 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "random module is not cryptographically secure — use secrets module",
-    "language": ["python"]
+    "description": "random module is not cryptographically secure \u2014 use secrets module",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "weak-hash-md5",
-    "pattern": "(?:hashlib\\.md5|MD5\\.Create|MessageDigest.*MD5|crypto\\.createHash\\(['\"]md5['\"]\\))",
+    "pattern": "(?:(?:hashlib\\.md5|MD5\\.Create|MessageDigest.*MD5|crypto\\.createHash\\(['\"]md5['\"]\\)))|md5\\.(?:Sum|New)\\s*\\(",
     "cwe": "CWE-327",
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "MD5 is cryptographically broken — use SHA-256 or stronger",
-    "language": ["python", "javascript", "typescript", "java", "go"]
+    "description": "MD5 is cryptographically broken \u2014 use SHA-256 or stronger",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "weak-hash-sha1",
-    "pattern": "(?:hashlib\\.sha1|SHA1\\.Create|MessageDigest.*SHA-1|crypto\\.createHash\\(['\"]sha1['\"]\\))",
+    "pattern": "(?:(?:hashlib\\.sha1|SHA1\\.Create|MessageDigest.*SHA-1|crypto\\.createHash\\(['\"]sha1['\"]\\)))|sha1\\.(?:Sum|New)\\s*\\(",
     "cwe": "CWE-327",
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "SHA-1 is deprecated — use SHA-256 or stronger",
-    "language": ["python", "javascript", "typescript", "java", "go"]
+    "description": "SHA-1 is deprecated \u2014 use SHA-256 or stronger",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "open-redirect",
@@ -277,7 +380,14 @@
     "severity": "medium",
     "category": "redirect",
     "description": "Open redirect to user-supplied URL",
-    "language": ["javascript", "typescript", "python", "java", "ruby", "php"]
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "ssrf-request",
@@ -286,8 +396,12 @@
     "owasp": "A10:2021",
     "severity": "high",
     "category": "ssrf",
-    "description": "HTTP request to user-controlled URL — SSRF risk",
-    "language": ["python", "javascript", "typescript"]
+    "description": "HTTP request to user-controlled URL \u2014 SSRF risk",
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "xxe-parse",
@@ -297,7 +411,10 @@
     "severity": "high",
     "category": "xxe",
     "description": "XML parsing without explicit XXE protection",
-    "language": ["python", "java"]
+    "language": [
+      "python",
+      "java"
+    ]
   },
   {
     "id": "jwt-none-algorithm",
@@ -306,8 +423,12 @@
     "owasp": "A02:2021",
     "severity": "critical",
     "category": "auth",
-    "description": "JWT with 'none' algorithm — signature bypass",
-    "language": ["javascript", "typescript", "python"]
+    "description": "JWT with 'none' algorithm \u2014 signature bypass",
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
   {
     "id": "jwt-no-verify",
@@ -317,7 +438,9 @@
     "severity": "critical",
     "category": "auth",
     "description": "JWT decoded without signature verification",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "tls-verify-disabled",
@@ -327,7 +450,12 @@
     "severity": "high",
     "category": "crypto",
     "description": "TLS certificate verification disabled",
-    "language": ["python", "javascript", "typescript", "go"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "go"
+    ]
   },
   {
     "id": "debug-mode-production",
@@ -336,8 +464,12 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "Debug mode enabled — may expose sensitive information in production",
-    "language": ["python", "javascript", "typescript"]
+    "description": "Debug mode enabled \u2014 may expose sensitive information in production",
+    "language": [
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "prototype-pollution",
@@ -347,7 +479,10 @@
     "severity": "high",
     "category": "injection",
     "description": "Potential prototype pollution via user-controlled property",
-    "language": ["javascript", "typescript"]
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "regex-dos",
@@ -356,10 +491,12 @@
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "dos",
-    "description": "Regular expression from user input — ReDoS risk",
-    "language": ["javascript", "typescript"]
+    "description": "Regular expression from user input \u2014 ReDoS risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "ssti-jinja2-render-string",
     "pattern": "render_template_string\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\+|format|\\{|%)",
@@ -367,8 +504,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Jinja2 render_template_string with user input — server-side template injection",
-    "language": ["python"]
+    "description": "Jinja2 render_template_string with user input \u2014 server-side template injection",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "ssti-jinja2-from-string",
@@ -377,8 +516,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Jinja2 Template constructed from user input — SSTI risk",
-    "language": ["python"]
+    "description": "Jinja2 Template constructed from user input \u2014 SSTI risk",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "ssti-mako-template",
@@ -387,8 +528,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Mako Template with user-controlled content — SSTI risk",
-    "language": ["python"]
+    "description": "Mako Template with user-controlled content \u2014 SSTI risk",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "ssti-twig-createtemplate",
@@ -397,8 +540,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Twig template created from user input — SSTI risk",
-    "language": ["php"]
+    "description": "Twig template created from user input \u2014 SSTI risk",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "ssti-pug-compile",
@@ -407,8 +552,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Pug template compiled from user input — SSTI risk",
-    "language": ["javascript", "typescript"]
+    "description": "Pug template compiled from user input \u2014 SSTI risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "ssti-ejs-render",
@@ -417,10 +565,12 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "EJS template rendered from user input — SSTI risk",
-    "language": ["javascript", "typescript"]
+    "description": "EJS template rendered from user input \u2014 SSTI risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "ldap-injection-search",
     "pattern": "(?:ldap|ldap3|ldapjs)\\.(?:search|bind|compare|modify)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\+|format|\\$\\{|f['\"])",
@@ -428,8 +578,13 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "LDAP query with user input — LDAP injection risk",
-    "language": ["python", "javascript", "typescript", "java"]
+    "description": "LDAP query with user input \u2014 LDAP injection risk",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java"
+    ]
   },
   {
     "id": "ldap-injection-filter-concat",
@@ -438,8 +593,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "PHP LDAP search with user input — injection risk",
-    "language": ["php"]
+    "description": "PHP LDAP search with user input \u2014 injection risk",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "ldap-injection-java",
@@ -448,10 +605,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Java LDAP search with HTTP request input — injection risk",
-    "language": ["java"]
+    "description": "Java LDAP search with HTTP request input \u2014 injection risk",
+    "language": [
+      "java"
+    ]
   },
-
   {
     "id": "nosql-injection-where",
     "pattern": "\\$where\\s*:\\s*.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\+|`)",
@@ -459,8 +617,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "MongoDB $where with user input — NoSQL injection / code execution",
-    "language": ["javascript", "typescript"]
+    "description": "MongoDB $where with user input \u2014 NoSQL injection / code execution",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "nosql-injection-regex",
@@ -469,8 +630,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "MongoDB $regex with user input — NoSQL injection risk",
-    "language": ["javascript", "typescript"]
+    "description": "MongoDB $regex with user input \u2014 NoSQL injection risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "nosql-injection-operator",
@@ -479,8 +643,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "MongoDB query directly from request — NoSQL operator injection risk",
-    "language": ["javascript", "typescript"]
+    "description": "MongoDB query directly from request \u2014 NoSQL operator injection risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "nosql-injection-pymongo",
@@ -489,10 +656,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "PyMongo query with user input — NoSQL injection risk",
-    "language": ["python"]
+    "description": "PyMongo query with user input \u2014 NoSQL injection risk",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "graphql-introspection-enabled",
     "pattern": "introspection\\s*:\\s*true",
@@ -500,8 +668,13 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "GraphQL introspection enabled — exposes full schema to attackers",
-    "language": ["javascript", "typescript", "python", "java"]
+    "description": "GraphQL introspection enabled \u2014 exposes full schema to attackers",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java"
+    ]
   },
   {
     "id": "graphql-no-depth-limit",
@@ -510,8 +683,11 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "dos",
-    "description": "GraphQL server without query depth limit — DoS via nested queries",
-    "language": ["javascript", "typescript"]
+    "description": "GraphQL server without query depth limit \u2014 DoS via nested queries",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "graphql-batching-no-limit",
@@ -520,10 +696,12 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "dos",
-    "description": "GraphQL batching enabled without limit — brute force and DoS risk",
-    "language": ["javascript", "typescript"]
+    "description": "GraphQL batching enabled without limit \u2014 brute force and DoS risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "race-condition-toctou-python",
     "pattern": "(?:os\\.path\\.exists|os\\.path\\.isfile|os\\.access)\\s*\\([^)]+\\)\\s*(?::|\\n)\\s*(?:open|os\\.(?:remove|unlink|rename|chmod|chown))",
@@ -531,8 +709,10 @@
     "owasp": "A04:2021",
     "severity": "medium",
     "category": "race-condition",
-    "description": "TOCTOU race condition — check then act on filesystem without lock",
-    "language": ["python"]
+    "description": "TOCTOU race condition \u2014 check then act on filesystem without lock",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "race-condition-toctou-node",
@@ -541,10 +721,12 @@
     "owasp": "A04:2021",
     "severity": "medium",
     "category": "race-condition",
-    "description": "TOCTOU race condition — check then act on filesystem without atomicity",
-    "language": ["javascript", "typescript"]
+    "description": "TOCTOU race condition \u2014 check then act on filesystem without atomicity",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "mass-assignment-express-create",
     "pattern": "\\.create\\s*\\(\\s*(?:req\\.body|request\\.body|ctx\\.request\\.body)",
@@ -552,8 +734,11 @@
     "owasp": "A04:2021",
     "severity": "high",
     "category": "mass-assignment",
-    "description": "ORM create with unsanitized request body — mass assignment vulnerability",
-    "language": ["javascript", "typescript"]
+    "description": "ORM create with unsanitized request body \u2014 mass assignment vulnerability",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "mass-assignment-express-update",
@@ -562,8 +747,11 @@
     "owasp": "A04:2021",
     "severity": "high",
     "category": "mass-assignment",
-    "description": "ORM update with unsanitized request body — mass assignment vulnerability",
-    "language": ["javascript", "typescript"]
+    "description": "ORM update with unsanitized request body \u2014 mass assignment vulnerability",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "mass-assignment-spread-body",
@@ -572,8 +760,11 @@
     "owasp": "A04:2021",
     "severity": "high",
     "category": "mass-assignment",
-    "description": "Spreading request body into object — mass assignment risk",
-    "language": ["javascript", "typescript"]
+    "description": "Spreading request body into object \u2014 mass assignment risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "mass-assignment-rails",
@@ -583,7 +774,9 @@
     "severity": "high",
     "category": "mass-assignment",
     "description": "Rails mass assignment without strong parameters",
-    "language": ["ruby"]
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "mass-assignment-django",
@@ -592,10 +785,11 @@
     "owasp": "A04:2021",
     "severity": "high",
     "category": "mass-assignment",
-    "description": "Django create with unpacked request data — mass assignment",
-    "language": ["python"]
+    "description": "Django create with unpacked request data \u2014 mass assignment",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "insecure-file-upload-no-ext-check",
     "pattern": "(?:multer|formidable|busboy|multiparty)\\s*\\(",
@@ -603,8 +797,11 @@
     "owasp": "A04:2021",
     "severity": "medium",
     "category": "file-upload",
-    "description": "File upload middleware — verify extension and content-type validation exists",
-    "language": ["javascript", "typescript"]
+    "description": "File upload middleware \u2014 verify extension and content-type validation exists",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "insecure-file-upload-python",
@@ -614,7 +811,9 @@
     "severity": "medium",
     "category": "file-upload",
     "description": "File upload saved without apparent extension/type validation",
-    "language": ["python"]
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "insecure-file-upload-php",
@@ -623,19 +822,27 @@
     "owasp": "A04:2021",
     "severity": "high",
     "category": "file-upload",
-    "description": "PHP file upload — verify extension, MIME type, and size validation",
-    "language": ["php"]
+    "description": "PHP file upload \u2014 verify extension, MIME type, and size validation",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "hardcoded-ip-bind-all",
-    "pattern": "(?:bind|listen|host)\\s*[=:(]\\s*['\"]0\\.0\\.0\\.0['\"]",
+    "pattern": "(?:(?:bind|listen|host)\\s*[=:(]\\s*['\"]0\\.0\\.0\\.0['\"])|ListenAndServe\\s*\\(\\s*['\\\"]0\\.0\\.0\\.0",
     "cwe": "CWE-200",
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "Binding to 0.0.0.0 — service exposed on all network interfaces",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby"]
+    "description": "Binding to 0.0.0.0 \u2014 service exposed on all network interfaces",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby"
+    ]
   },
   {
     "id": "hardcoded-ip-private",
@@ -644,10 +851,17 @@
     "owasp": "A05:2021",
     "severity": "low",
     "category": "misconfiguration",
-    "description": "Hardcoded private IP address — use configuration/environment variables",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "description": "Hardcoded private IP address \u2014 use configuration/environment variables",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-cookie-no-httponly",
     "pattern": "(?:set[-_]?cookie|setCookie|res\\.cookie)\\s*\\([^)]*(?!httponly|httpOnly|http_only)",
@@ -655,8 +869,13 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "Cookie set without httpOnly flag — accessible to JavaScript/XSS",
-    "language": ["javascript", "typescript", "python", "php"]
+    "description": "Cookie set without httpOnly flag \u2014 accessible to JavaScript/XSS",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
   {
     "id": "insecure-cookie-no-secure",
@@ -665,8 +884,13 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "Cookie with secure=false — transmitted over unencrypted HTTP",
-    "language": ["javascript", "typescript", "python", "php"]
+    "description": "Cookie with secure=false \u2014 transmitted over unencrypted HTTP",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
   {
     "id": "insecure-cookie-no-samesite",
@@ -675,10 +899,14 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "Cookie with SameSite=None — vulnerable to CSRF",
-    "language": ["javascript", "typescript", "python", "php"]
+    "description": "Cookie with SameSite=None \u2014 vulnerable to CSRF",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
-
   {
     "id": "missing-rate-limit-auth",
     "pattern": "(?:app|router)\\s*\\.(?:post|put)\\s*\\(\\s*['\"](?:/login|/signin|/auth|/token|/register|/signup|/reset-password|/forgot-password)['\"]",
@@ -686,8 +914,11 @@
     "owasp": "A07:2021",
     "severity": "medium",
     "category": "auth",
-    "description": "Authentication endpoint — verify rate limiting is applied",
-    "language": ["javascript", "typescript"]
+    "description": "Authentication endpoint \u2014 verify rate limiting is applied",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "missing-rate-limit-api",
@@ -696,10 +927,11 @@
     "owasp": "A07:2021",
     "severity": "medium",
     "category": "auth",
-    "description": "Python auth endpoint — verify rate limiting is applied",
-    "language": ["python"]
+    "description": "Python auth endpoint \u2014 verify rate limiting is applied",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "log-injection-node",
     "pattern": "(?:console\\.(?:log|info|warn|error|debug)|logger\\.(?:info|warn|error|debug))\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
@@ -707,8 +939,11 @@
     "owasp": "A09:2021",
     "severity": "medium",
     "category": "injection",
-    "description": "User input in log statement — log injection/forging risk",
-    "language": ["javascript", "typescript"]
+    "description": "User input in log statement \u2014 log injection/forging risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "log-injection-python",
@@ -717,10 +952,11 @@
     "owasp": "A09:2021",
     "severity": "medium",
     "category": "injection",
-    "description": "User input in Python log statement — log injection/forging risk",
-    "language": ["python"]
+    "description": "User input in Python log statement \u2014 log injection/forging risk",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "integer-overflow-parseint-noradix",
     "pattern": "parseInt\\s*\\(\\s*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)[^,)]*\\)",
@@ -728,8 +964,11 @@
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "input-validation",
-    "description": "parseInt on user input without radix or bounds check — integer issues",
-    "language": ["javascript", "typescript"]
+    "description": "parseInt on user input without radix or bounds check \u2014 integer issues",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "integer-overflow-number-cast",
@@ -738,10 +977,12 @@
     "owasp": "A03:2021",
     "severity": "low",
     "category": "input-validation",
-    "description": "Unchecked Number() cast on user input — NaN/Infinity risk",
-    "language": ["javascript", "typescript"]
+    "description": "Unchecked Number() cast on user input \u2014 NaN/Infinity risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "prototype-pollution-merge",
     "pattern": "(?:merge|extend|defaultsDeep|_.merge|lodash\\.merge)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
@@ -749,8 +990,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "Deep merge with user input — prototype pollution risk",
-    "language": ["javascript", "typescript"]
+    "description": "Deep merge with user input \u2014 prototype pollution risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "prototype-pollution-bracket-assign",
@@ -759,10 +1003,12 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "Dynamic property assignment from user input — prototype pollution risk",
-    "language": ["javascript", "typescript"]
+    "description": "Dynamic property assignment from user input \u2014 prototype pollution risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "regex-dos-python",
     "pattern": "re\\.(?:match|search|findall|sub|split)\\s*\\(.*(?:request\\.|form\\[|args\\[|json\\[|input\\()",
@@ -770,10 +1016,11 @@
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "dos",
-    "description": "Python regex with user input — ReDoS risk",
-    "language": ["python"]
+    "description": "Python regex with user input \u2014 ReDoS risk",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "timing-attack-string-compare",
     "pattern": "(?:secret|token|password|api_key|apiKey|key|hash|signature|sig)\\s*(?:===?|!==?|==|!=)\\s*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
@@ -781,8 +1028,11 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "Direct string comparison for secret — use timing-safe comparison",
-    "language": ["javascript", "typescript"]
+    "description": "Direct string comparison for secret \u2014 use timing-safe comparison",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "timing-attack-python",
@@ -791,10 +1041,11 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "Direct string comparison for secret in Python — use hmac.compare_digest()",
-    "language": ["python"]
+    "description": "Direct string comparison for secret in Python \u2014 use hmac.compare_digest()",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "insecure-websocket-ws",
     "pattern": "['\"]ws://(?!localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)",
@@ -802,8 +1053,14 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "Unencrypted WebSocket (ws://) to non-local host — use wss://",
-    "language": ["javascript", "typescript", "python", "java", "go"]
+    "description": "Unencrypted WebSocket (ws://) to non-local host \u2014 use wss://",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "insecure-websocket-no-origin",
@@ -812,10 +1069,12 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "WebSocket server without origin verification — CSWSH risk",
-    "language": ["javascript", "typescript"]
+    "description": "WebSocket server without origin verification \u2014 CSWSH risk",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "jwt-hs256-public-key",
     "pattern": "jwt\\.(?:verify|decode)\\s*\\([^)]*(?:publicKey|public_key|getPublicKey|PEM|RSA).*['\"]HS256['\"]",
@@ -823,8 +1082,12 @@
     "owasp": "A02:2021",
     "severity": "critical",
     "category": "auth",
-    "description": "JWT HS256 with public key — algorithm confusion attack",
-    "language": ["javascript", "typescript", "python"]
+    "description": "JWT HS256 with public key \u2014 algorithm confusion attack",
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
   {
     "id": "jwt-no-expiry",
@@ -833,8 +1096,11 @@
     "owasp": "A07:2021",
     "severity": "medium",
     "category": "auth",
-    "description": "JWT signed without expiry — tokens valid indefinitely",
-    "language": ["javascript", "typescript"]
+    "description": "JWT signed without expiry \u2014 tokens valid indefinitely",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "jwt-weak-secret",
@@ -843,10 +1109,13 @@
     "owasp": "A02:2021",
     "severity": "critical",
     "category": "auth",
-    "description": "JWT with weak/default secret — trivially forgeable tokens",
-    "language": ["javascript", "typescript", "python"]
+    "description": "JWT with weak/default secret \u2014 trivially forgeable tokens",
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
-
   {
     "id": "xxe-documentbuilder-java",
     "pattern": "DocumentBuilderFactory\\.newInstance\\s*\\(\\)(?!.*setFeature.*disallow-doctype-decl)",
@@ -855,7 +1124,9 @@
     "severity": "high",
     "category": "xxe",
     "description": "Java DocumentBuilderFactory without XXE protection",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "xxe-xmlinputfactory-java",
@@ -865,7 +1136,9 @@
     "severity": "high",
     "category": "xxe",
     "description": "Java XMLInputFactory without external entity protection",
-    "language": ["java"]
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "xxe-lxml-python",
@@ -874,8 +1147,10 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "xxe",
-    "description": "lxml with resolve_entities enabled — XXE risk",
-    "language": ["python"]
+    "description": "lxml with resolve_entities enabled \u2014 XXE risk",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "xxe-libxml-php",
@@ -884,8 +1159,10 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "xxe",
-    "description": "PHP XML parsing with entity substitution enabled — XXE risk",
-    "language": ["php"]
+    "description": "PHP XML parsing with entity substitution enabled \u2014 XXE risk",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "xxe-php-load-entity",
@@ -894,8 +1171,10 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "xxe",
-    "description": "PHP external entity loading explicitly enabled — XXE risk",
-    "language": ["php"]
+    "description": "PHP external entity loading explicitly enabled \u2014 XXE risk",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "xxe-go-decoder",
@@ -904,10 +1183,11 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "xxe",
-    "description": "Go XML decoder — verify external entity handling is disabled",
-    "language": ["go"]
+    "description": "Go XML decoder \u2014 verify external entity handling is disabled",
+    "language": [
+      "go"
+    ]
   },
-
   {
     "id": "ssrf-cloud-metadata",
     "pattern": "(?:169\\.254\\.169\\.254|metadata\\.google\\.internal|metadata\\.azure\\.com|100\\.100\\.100\\.200)",
@@ -915,8 +1195,16 @@
     "owasp": "A10:2021",
     "severity": "critical",
     "category": "ssrf",
-    "description": "Cloud metadata endpoint URL — SSRF to cloud credentials",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "description": "Cloud metadata endpoint URL \u2014 SSRF to cloud credentials",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "ssrf-java-url",
@@ -925,8 +1213,10 @@
     "owasp": "A10:2021",
     "severity": "high",
     "category": "ssrf",
-    "description": "Java URL from user input — SSRF risk",
-    "language": ["java"]
+    "description": "Java URL from user input \u2014 SSRF risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "ssrf-go-http-get",
@@ -935,8 +1225,10 @@
     "owasp": "A10:2021",
     "severity": "high",
     "category": "ssrf",
-    "description": "Go HTTP request with user input — SSRF risk",
-    "language": ["go"]
+    "description": "Go HTTP request with user input \u2014 SSRF risk",
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "ssrf-ruby-open-uri",
@@ -945,8 +1237,10 @@
     "owasp": "A10:2021",
     "severity": "high",
     "category": "ssrf",
-    "description": "Ruby HTTP request with user input — SSRF risk",
-    "language": ["ruby"]
+    "description": "Ruby HTTP request with user input \u2014 SSRF risk",
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "ssrf-php-curl",
@@ -955,10 +1249,11 @@
     "owasp": "A10:2021",
     "severity": "high",
     "category": "ssrf",
-    "description": "PHP cURL with user-controlled URL — SSRF risk",
-    "language": ["php"]
+    "description": "PHP cURL with user-controlled URL \u2014 SSRF risk",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "session-fixation",
     "pattern": "(?:session_id|session\\[.session_id.\\])\\s*=\\s*(?:req\\.|request\\.|params\\.|query\\.|\\$_GET|\\$_POST|\\$_REQUEST)",
@@ -966,8 +1261,13 @@
     "owasp": "A07:2021",
     "severity": "high",
     "category": "auth",
-    "description": "Session ID set from user input — session fixation vulnerability",
-    "language": ["php", "python", "javascript", "typescript"]
+    "description": "Session ID set from user input \u2014 session fixation vulnerability",
+    "language": [
+      "php",
+      "python",
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "session-no-regenerate",
@@ -976,19 +1276,25 @@
     "owasp": "A07:2021",
     "severity": "medium",
     "category": "auth",
-    "description": "Authentication without session regeneration — fixation risk",
-    "language": ["javascript", "typescript", "python", "php"]
+    "description": "Authentication without session regeneration \u2014 fixation risk",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-random-go",
-    "pattern": "math/rand",
+    "pattern": "(?:math/rand)|\\brand\\.(?:Intn|Int31|Int63|Float32|Float64|Perm|Shuffle|Seed)\\s*\\(",
     "cwe": "CWE-338",
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "Go math/rand is not cryptographically secure — use crypto/rand",
-    "language": ["go"]
+    "description": "Go math/rand is not cryptographically secure \u2014 use crypto/rand",
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "insecure-random-java",
@@ -997,8 +1303,10 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "java.util.Random is not cryptographically secure — use SecureRandom",
-    "language": ["java"]
+    "description": "java.util.Random is not cryptographically secure \u2014 use SecureRandom",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "insecure-random-ruby",
@@ -1007,8 +1315,10 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "Ruby rand/Random not cryptographically secure — use SecureRandom",
-    "language": ["ruby"]
+    "description": "Ruby rand/Random not cryptographically secure \u2014 use SecureRandom",
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "insecure-random-php",
@@ -1017,10 +1327,11 @@
     "owasp": "A02:2021",
     "severity": "medium",
     "category": "crypto",
-    "description": "PHP rand/mt_rand not cryptographically secure — use random_bytes/random_int",
-    "language": ["php"]
+    "description": "PHP rand/mt_rand not cryptographically secure \u2014 use random_bytes/random_int",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "sql-injection-go-sprintf",
     "pattern": "fmt\\.Sprintf\\s*\\(\\s*['\"]\\s*(?:SELECT|INSERT|UPDATE|DELETE|DROP)",
@@ -1028,8 +1339,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Go SQL query via fmt.Sprintf — use parameterized queries",
-    "language": ["go"]
+    "description": "Go SQL query via fmt.Sprintf \u2014 use parameterized queries",
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "sql-injection-go-concat",
@@ -1038,8 +1351,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Go SQL query via string concatenation — use parameterized queries",
-    "language": ["go"]
+    "description": "Go SQL query via string concatenation \u2014 use parameterized queries",
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "sql-injection-java-concat",
@@ -1048,8 +1363,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Java SQL via string concatenation — use PreparedStatement with parameters",
-    "language": ["java"]
+    "description": "Java SQL via string concatenation \u2014 use PreparedStatement with parameters",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "sql-injection-java-request",
@@ -1058,8 +1375,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Java SQL query with HTTP request input — injection risk",
-    "language": ["java"]
+    "description": "Java SQL query with HTTP request input \u2014 injection risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "sql-injection-php-concat",
@@ -1068,8 +1387,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "PHP SQL query with user input — use prepared statements",
-    "language": ["php"]
+    "description": "PHP SQL query with user input \u2014 use prepared statements",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "sql-injection-php-interpolation",
@@ -1078,8 +1399,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "PHP SQL with variable interpolation — use prepared statements",
-    "language": ["php"]
+    "description": "PHP SQL with variable interpolation \u2014 use prepared statements",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "sql-injection-ruby-interpolation",
@@ -1088,10 +1411,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Ruby SQL with string interpolation — use parameterized queries",
-    "language": ["ruby"]
+    "description": "Ruby SQL with string interpolation \u2014 use parameterized queries",
+    "language": [
+      "ruby"
+    ]
   },
-
   {
     "id": "path-traversal-go",
     "pattern": "(?:os\\.(?:Open|ReadFile|Create|WriteFile)|ioutil\\.(?:ReadFile|WriteFile)|filepath\\.Join)\\s*\\(.*(?:r\\.(?:URL|Form|PostForm)|r\\.Header\\.Get|mux\\.Vars|c\\.(?:Param|Query))",
@@ -1099,8 +1423,10 @@
     "owasp": "A01:2021",
     "severity": "high",
     "category": "path-traversal",
-    "description": "Go file operation with user input — path traversal risk",
-    "language": ["go"]
+    "description": "Go file operation with user input \u2014 path traversal risk",
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "path-traversal-java",
@@ -1109,8 +1435,10 @@
     "owasp": "A01:2021",
     "severity": "high",
     "category": "path-traversal",
-    "description": "Java file operation with user input — path traversal risk",
-    "language": ["java"]
+    "description": "Java file operation with user input \u2014 path traversal risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "path-traversal-ruby",
@@ -1119,8 +1447,10 @@
     "owasp": "A01:2021",
     "severity": "high",
     "category": "path-traversal",
-    "description": "Ruby file operation with user input — path traversal risk",
-    "language": ["ruby"]
+    "description": "Ruby file operation with user input \u2014 path traversal risk",
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "path-traversal-php",
@@ -1129,10 +1459,11 @@
     "owasp": "A01:2021",
     "severity": "critical",
     "category": "path-traversal",
-    "description": "PHP file operation with user input — path traversal / file inclusion risk",
-    "language": ["php"]
+    "description": "PHP file operation with user input \u2014 path traversal / file inclusion risk",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "deserialization-java-objectinputstream",
     "pattern": "(?:ObjectInputStream|readObject|readUnshared)\\s*\\(",
@@ -1140,8 +1471,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "Java ObjectInputStream — untrusted deserialization / RCE risk",
-    "language": ["java"]
+    "description": "Java ObjectInputStream \u2014 untrusted deserialization / RCE risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "deserialization-java-xmldecoder",
@@ -1150,8 +1483,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "Java XMLDecoder — arbitrary code execution via deserialization",
-    "language": ["java"]
+    "description": "Java XMLDecoder \u2014 arbitrary code execution via deserialization",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "deserialization-java-xstream",
@@ -1160,8 +1495,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "XStream without type restrictions — deserialization RCE risk",
-    "language": ["java"]
+    "description": "XStream without type restrictions \u2014 deserialization RCE risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "deserialization-dotnet-binaryformatter",
@@ -1170,8 +1507,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": ".NET BinaryFormatter — insecure deserializer, use JsonSerializer",
-    "language": ["csharp"]
+    "description": ".NET BinaryFormatter \u2014 insecure deserializer, use JsonSerializer",
+    "language": [
+      "csharp"
+    ]
   },
   {
     "id": "deserialization-dotnet-netdatacontract",
@@ -1180,8 +1519,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": ".NET NetDataContractSerializer — insecure deserializer",
-    "language": ["csharp"]
+    "description": ".NET NetDataContractSerializer \u2014 insecure deserializer",
+    "language": [
+      "csharp"
+    ]
   },
   {
     "id": "deserialization-dotnet-losformatter",
@@ -1190,8 +1531,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": ".NET LosFormatter — insecure deserializer",
-    "language": ["csharp"]
+    "description": ".NET LosFormatter \u2014 insecure deserializer",
+    "language": [
+      "csharp"
+    ]
   },
   {
     "id": "deserialization-dotnet-objectstateformatter",
@@ -1200,19 +1543,28 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": ".NET ObjectStateFormatter — insecure deserializer",
-    "language": ["csharp"]
+    "description": ".NET ObjectStateFormatter \u2014 insecure deserializer",
+    "language": [
+      "csharp"
+    ]
   },
-
   {
     "id": "weak-crypto-des",
-    "pattern": "(?:DES|DESede|TripleDES|3DES|Blowfish)(?:\\.(?:new|encrypt|decrypt)|\\s*\\()",
+    "pattern": "(?:(?:DES|DESede|TripleDES|3DES|Blowfish)(?:\\.(?:new|encrypt|decrypt)|\\s*\\())|des\\.(?:NewCipher|NewTripleDESCipher)\\s*\\(",
     "cwe": "CWE-327",
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
-    "description": "Weak/deprecated cipher (DES/3DES/Blowfish) — use AES-256",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "description": "Weak/deprecated cipher (DES/3DES/Blowfish) \u2014 use AES-256",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
   {
     "id": "weak-crypto-ecb-mode",
@@ -1221,20 +1573,27 @@
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
-    "description": "ECB cipher mode — does not provide semantic security, use GCM or CBC",
-    "language": ["python", "java", "go"]
+    "description": "ECB cipher mode \u2014 does not provide semantic security, use GCM or CBC",
+    "language": [
+      "python",
+      "java",
+      "go"
+    ]
   },
   {
     "id": "weak-crypto-rsa-small-key",
-    "pattern": "(?:RSA\\.generate|KeyPairGenerator.*RSA)\\s*\\(\\s*(?:512|768|1024)\\s*\\)",
+    "pattern": "(?:(?:RSA\\.generate|KeyPairGenerator.*RSA)\\s*\\(\\s*(?:512|768|1024)\\s*\\))|rsa\\.GenerateKey\\s*\\([^,]+,\\s*(?:512|768|1024)\\s*\\)",
     "cwe": "CWE-326",
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
-    "description": "RSA key size too small — use at least 2048 bits",
-    "language": ["python", "java", "go"]
+    "description": "RSA key size too small \u2014 use at least 2048 bits",
+    "language": [
+      "python",
+      "java",
+      "go"
+    ]
   },
-
   {
     "id": "command-injection-go",
     "pattern": "exec\\.Command\\s*\\(\\s*['\"](?:bash|sh|cmd|powershell)['\"]\\s*,\\s*['\"](?:-c|-Command)['\"]\\s*,.*(?:r\\.(?:URL|Form|PostForm)|r\\.Header\\.Get|mux\\.Vars|c\\.(?:Param|Query))",
@@ -1242,8 +1601,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Go shell command with user input — command injection risk",
-    "language": ["go"]
+    "description": "Go shell command with user input \u2014 command injection risk",
+    "language": [
+      "go"
+    ]
   },
   {
     "id": "command-injection-java-runtime",
@@ -1252,8 +1613,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Java Runtime.exec with user input — command injection risk",
-    "language": ["java"]
+    "description": "Java Runtime.exec with user input \u2014 command injection risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "command-injection-java-processbuilder",
@@ -1262,8 +1625,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Java ProcessBuilder with user input — command injection risk",
-    "language": ["java"]
+    "description": "Java ProcessBuilder with user input \u2014 command injection risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "command-injection-ruby",
@@ -1272,8 +1637,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Ruby command execution with user input — injection risk",
-    "language": ["ruby"]
+    "description": "Ruby command execution with user input \u2014 injection risk",
+    "language": [
+      "ruby"
+    ]
   },
   {
     "id": "command-injection-php",
@@ -1282,10 +1649,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "PHP command execution with user input — injection risk",
-    "language": ["php"]
+    "description": "PHP command execution with user input \u2014 injection risk",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "xss-php-echo",
     "pattern": "(?:echo|print)\\s+\\$_(?:GET|POST|REQUEST|COOKIE)",
@@ -1293,8 +1661,10 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "xss",
-    "description": "PHP echo/print with user input — XSS vulnerability",
-    "language": ["php"]
+    "description": "PHP echo/print with user input \u2014 XSS vulnerability",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "xss-java-response-write",
@@ -1303,8 +1673,10 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "xss",
-    "description": "Java response writer with user input — XSS risk",
-    "language": ["java"]
+    "description": "Java response writer with user input \u2014 XSS risk",
+    "language": [
+      "java"
+    ]
   },
   {
     "id": "xss-ruby-raw-html",
@@ -1313,10 +1685,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "xss",
-    "description": "Rails html_safe/raw with user input — XSS risk",
-    "language": ["ruby"]
+    "description": "Rails html_safe/raw with user input \u2014 XSS risk",
+    "language": [
+      "ruby"
+    ]
   },
-
   {
     "id": "ssrf-internal-network",
     "pattern": "(?:fetch|requests?\\.get|axios\\.get|http\\.get|urllib).*(?:127\\.0\\.0\\.1|localhost|0\\.0\\.0\\.0|\\[::1\\]|10\\.|172\\.(?:1[6-9]|2\\d|3[01])|192\\.168)",
@@ -1324,10 +1697,15 @@
     "owasp": "A10:2021",
     "severity": "medium",
     "category": "ssrf",
-    "description": "HTTP request to internal/loopback address — potential SSRF",
-    "language": ["python", "javascript", "typescript", "java", "go"]
+    "description": "HTTP request to internal/loopback address \u2014 potential SSRF",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go"
+    ]
   },
-
   {
     "id": "header-injection",
     "pattern": "(?:setHeader|set_header|addHeader|add_header|writeHead|response\\.headers)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user)",
@@ -1335,10 +1713,14 @@
     "owasp": "A03:2021",
     "severity": "medium",
     "category": "injection",
-    "description": "HTTP response header from user input — header injection / response splitting",
-    "language": ["javascript", "typescript", "python", "java"]
+    "description": "HTTP response header from user input \u2014 header injection / response splitting",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java"
+    ]
   },
-
   {
     "id": "xpath-injection",
     "pattern": "(?:xpath|XPathFactory|evaluate)\\s*\\(.*(?:req\\.|request\\.|params\\.|query\\.|body\\.|input|user|\\$_GET|\\$_POST)",
@@ -1346,10 +1728,15 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "XPath query with user input — injection risk",
-    "language": ["javascript", "typescript", "python", "java", "php"]
+    "description": "XPath query with user input \u2014 injection risk",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "php"
+    ]
   },
-
   {
     "id": "unsafe-reflection-java",
     "pattern": "Class\\.forName\\s*\\(.*(?:request\\.getParameter|getQueryString|getHeader)",
@@ -1357,10 +1744,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "Java reflection with user input — unsafe class loading",
-    "language": ["java"]
+    "description": "Java reflection with user input \u2014 unsafe class loading",
+    "language": [
+      "java"
+    ]
   },
-
   {
     "id": "open-redirect-flask",
     "pattern": "redirect\\s*\\(\\s*(?:request\\.args|request\\.form|request\\.values|request\\.json)",
@@ -1368,8 +1756,10 @@
     "owasp": "A01:2021",
     "severity": "medium",
     "category": "redirect",
-    "description": "Flask redirect with user input — open redirect vulnerability",
-    "language": ["python"]
+    "description": "Flask redirect with user input \u2014 open redirect vulnerability",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "open-redirect-php",
@@ -1378,10 +1768,11 @@
     "owasp": "A01:2021",
     "severity": "medium",
     "category": "redirect",
-    "description": "PHP redirect with user input — open redirect vulnerability",
-    "language": ["php"]
+    "description": "PHP redirect with user input \u2014 open redirect vulnerability",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "http-response-splitting",
     "pattern": "(?:setHeader|addHeader|header)\\s*\\(.*[\\\\]r[\\\\]n|(?:\\\\r\\\\n|%0d%0a|%0D%0A)",
@@ -1389,10 +1780,15 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "CRLF in HTTP header — response splitting attack",
-    "language": ["javascript", "typescript", "python", "java", "php"]
+    "description": "CRLF in HTTP header \u2014 response splitting attack",
+    "language": [
+      "javascript",
+      "typescript",
+      "python",
+      "java",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-crypto-no-iv",
     "pattern": "(?:AES\\.new|Cipher\\.getInstance)\\s*\\([^)]*(?:ECB|$)\\)",
@@ -1400,10 +1796,12 @@
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
-    "description": "Cipher without IV or using ECB mode — predictable encryption",
-    "language": ["python", "java"]
+    "description": "Cipher without IV or using ECB mode \u2014 predictable encryption",
+    "language": [
+      "python",
+      "java"
+    ]
   },
-
   {
     "id": "hardcoded-connection-string",
     "pattern": "(?:mongodb|mysql|postgres|postgresql|redis|amqp|mssql)://[^/\\s]+:[^@\\s]+@",
@@ -1412,9 +1810,16 @@
     "severity": "high",
     "category": "credentials",
     "description": "Hardcoded database connection string with credentials",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "express-helmet-missing",
     "pattern": "express\\s*\\(\\s*\\)(?!.*helmet)",
@@ -1422,10 +1827,12 @@
     "owasp": "A05:2021",
     "severity": "low",
     "category": "misconfiguration",
-    "description": "Express app without helmet — missing security headers",
-    "language": ["javascript", "typescript"]
+    "description": "Express app without helmet \u2014 missing security headers",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "eval-php-user-input",
     "pattern": "\\beval\\s*\\(.*\\$_(?:GET|POST|REQUEST|COOKIE|SERVER)",
@@ -1433,8 +1840,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "PHP eval with user input — remote code execution",
-    "language": ["php"]
+    "description": "PHP eval with user input \u2014 remote code execution",
+    "language": [
+      "php"
+    ]
   },
   {
     "id": "preg-replace-eval-php",
@@ -1443,10 +1852,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "PHP preg_replace with /e modifier — code execution",
-    "language": ["php"]
+    "description": "PHP preg_replace with /e modifier \u2014 code execution",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "python-exec-user-input",
     "pattern": "exec\\s*\\(.*(?:request\\.|form\\[|args\\[|json\\[|input\\()",
@@ -1454,8 +1864,10 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Python exec() with user input — arbitrary code execution",
-    "language": ["python"]
+    "description": "Python exec() with user input \u2014 arbitrary code execution",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "python-compile-user-input",
@@ -1464,10 +1876,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Python compile() with user input — code execution risk",
-    "language": ["python"]
+    "description": "Python compile() with user input \u2014 code execution risk",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "insecure-deserialization-jsonpickle",
     "pattern": "jsonpickle\\.(?:decode|loads)\\s*\\(",
@@ -1475,8 +1888,10 @@
     "owasp": "A08:2021",
     "severity": "critical",
     "category": "deserialization",
-    "description": "jsonpickle deserialization — arbitrary code execution risk",
-    "language": ["python"]
+    "description": "jsonpickle deserialization \u2014 arbitrary code execution risk",
+    "language": [
+      "python"
+    ]
   },
   {
     "id": "insecure-deserialization-shelve",
@@ -1485,10 +1900,11 @@
     "owasp": "A08:2021",
     "severity": "high",
     "category": "deserialization",
-    "description": "Python shelve uses pickle internally — code execution risk",
-    "language": ["python"]
+    "description": "Python shelve uses pickle internally \u2014 code execution risk",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "cors-reflect-origin",
     "pattern": "(?:Access-Control-Allow-Origin|origin)\\s*[=:]\\s*(?:req\\.headers?\\.origin|request\\.headers?\\.origin|origin)",
@@ -1496,10 +1912,13 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "misconfiguration",
-    "description": "CORS origin reflected from request — effectively wildcard with credentials",
-    "language": ["javascript", "typescript", "python"]
+    "description": "CORS origin reflected from request \u2014 effectively wildcard with credentials",
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
-
   {
     "id": "information-exposure-stacktrace",
     "pattern": "(?:traceback\\.format_exc|traceback\\.print_exc|e\\.(?:stack|message)|err\\.(?:stack|message)).*(?:res\\.(?:send|json|write)|response\\.(?:write|send))",
@@ -1507,10 +1926,13 @@
     "owasp": "A05:2021",
     "severity": "medium",
     "category": "misconfiguration",
-    "description": "Stack trace sent in response — information exposure",
-    "language": ["javascript", "typescript", "python"]
+    "description": "Stack trace sent in response \u2014 information exposure",
+    "language": [
+      "javascript",
+      "typescript",
+      "python"
+    ]
   },
-
   {
     "id": "php-file-inclusion",
     "pattern": "(?:include|require|include_once|require_once)\\s*\\(\\s*\\$_(?:GET|POST|REQUEST|COOKIE)",
@@ -1518,10 +1940,11 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "PHP file inclusion with user input — local/remote file inclusion",
-    "language": ["php"]
+    "description": "PHP file inclusion with user input \u2014 local/remote file inclusion",
+    "language": [
+      "php"
+    ]
   },
-
   {
     "id": "ruby-erb-render-user",
     "pattern": "ERB\\.new\\s*\\(.*(?:params\\[|request\\.|env\\[)",
@@ -1529,21 +1952,29 @@
     "owasp": "A03:2021",
     "severity": "critical",
     "category": "injection",
-    "description": "Ruby ERB template from user input — SSTI risk",
-    "language": ["ruby"]
+    "description": "Ruby ERB template from user input \u2014 SSTI risk",
+    "language": [
+      "ruby"
+    ]
   },
-
   {
     "id": "weak-password-hash-md5",
-    "pattern": "(?:password|passwd|pwd).*(?:md5|MD5|sha1|SHA1)\\s*\\(",
+    "pattern": "(?:(?:password|passwd|pwd).*(?:md5|MD5|sha1|SHA1)\\s*\\()|(?:md5|sha1)\\.Sum\\s*\\([^)]*[Pp]ass(?:word|wd)?",
     "cwe": "CWE-916",
     "owasp": "A02:2021",
     "severity": "high",
     "category": "crypto",
-    "description": "Password hashed with MD5/SHA1 — use bcrypt, scrypt, or argon2",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "description": "Password hashed with MD5/SHA1 \u2014 use bcrypt, scrypt, or argon2",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "insecure-http-url",
     "pattern": "['\"]http://(?!localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0|\\[::1\\])\\S+['\"]",
@@ -1551,10 +1982,17 @@
     "owasp": "A02:2021",
     "severity": "low",
     "category": "crypto",
-    "description": "Plain HTTP URL to external host — use HTTPS",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "description": "Plain HTTP URL to external host \u2014 use HTTPS",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "xml-bomb-billion-laughs",
     "pattern": "<!ENTITY\\s+\\w+\\s+['\"]",
@@ -1562,10 +2000,17 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "dos",
-    "description": "XML entity definition — potential billion laughs / XML bomb",
-    "language": ["python", "javascript", "typescript", "java", "go", "ruby", "php"]
+    "description": "XML entity definition \u2014 potential billion laughs / XML bomb",
+    "language": [
+      "python",
+      "javascript",
+      "typescript",
+      "java",
+      "go",
+      "ruby",
+      "php"
+    ]
   },
-
   {
     "id": "electron-nodeintegration",
     "pattern": "nodeIntegration\\s*:\\s*true",
@@ -1573,8 +2018,11 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "misconfiguration",
-    "description": "Electron nodeIntegration enabled — XSS leads to RCE",
-    "language": ["javascript", "typescript"]
+    "description": "Electron nodeIntegration enabled \u2014 XSS leads to RCE",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
   {
     "id": "electron-contextisolation-disabled",
@@ -1583,10 +2031,12 @@
     "owasp": "A05:2021",
     "severity": "high",
     "category": "misconfiguration",
-    "description": "Electron contextIsolation disabled — preload script attacks",
-    "language": ["javascript", "typescript"]
+    "description": "Electron contextIsolation disabled \u2014 preload script attacks",
+    "language": [
+      "javascript",
+      "typescript"
+    ]
   },
-
   {
     "id": "django-raw-sql",
     "pattern": "\\.(?:raw|extra)\\s*\\(.*(?:request\\.|form\\[|GET\\[|POST\\[|%s|format|\\{)",
@@ -1594,10 +2044,11 @@
     "owasp": "A03:2021",
     "severity": "high",
     "category": "injection",
-    "description": "Django raw SQL with user input — SQL injection risk",
-    "language": ["python"]
+    "description": "Django raw SQL with user input \u2014 SQL injection risk",
+    "language": [
+      "python"
+    ]
   },
-
   {
     "id": "flask-send-file-user-path",
     "pattern": "send_(?:file|from_directory)\\s*\\(.*(?:request\\.args|request\\.form|request\\.json)",
@@ -1605,7 +2056,9 @@
     "owasp": "A01:2021",
     "severity": "high",
     "category": "path-traversal",
-    "description": "Flask send_file with user input — path traversal risk",
-    "language": ["python"]
+    "description": "Flask send_file with user input \u2014 path traversal risk",
+    "language": [
+      "python"
+    ]
   }
 ]
